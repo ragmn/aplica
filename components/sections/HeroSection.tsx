@@ -52,44 +52,31 @@ export function HeroSection() {
 
   return (
     <VideoBackground
-      src="/videos/hero.mp4"
+      src="/videos/hero2.mp4"
       poster="/images/hero-poster.jpg"
-      className="flex min-h-screen items-center"
+      className="relative min-h-screen w-full bg-black"
     >
-      {/* Ambient radial — CTA blue glow from top */}
-      <div
-        className="pointer-events-none absolute inset-0 bg-hero-glow opacity-70"
-        aria-hidden
-      />
+      <div className="pointer-events-none absolute inset-0 bg-black/40" aria-hidden />
 
-      <div className="container-xl relative z-10 pt-32 pb-24 text-center">
-
-        {/* Eyebrow pill — glassmorphism */}
-        <div
-          ref={eyebrowRef}
-          className="mb-8 inline-flex items-center gap-2.5 glass-pill px-5 py-2.5"
-        >
-          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-          <span className="text-xs font-semibold tracking-widest text-slate-300 uppercase">
-            Microsoft CSP · Gold Partner · AI Cloud Partner
-          </span>
-        </div>
+      <div className="absolute inset-x-0 top-[72px] z-10 flex h-[calc(100vh-72px)] items-center justify-center">
+        <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center px-6 text-center">
 
         {/* Headline — Plus Jakarta Sans, massive, tight */}
         <h1
           ref={headlineRef}
-          className="font-display font-extrabold text-white mx-auto max-w-5xl leading-[0.95] tracking-[-0.03em]"
-          style={{ fontSize: 'clamp(3rem, 8vw, 7rem)' }}
+          className="font-display font-extrabold text-white mx-auto max-w-5xl leading-[0.95] tracking-[-0.03em] text-[clamp(3.75rem,9vw,7rem)] lg:text-[clamp(3.25rem,8vw,5.25rem)]"
         >
           Implement D365
-          <span className="block" style={{
-            backgroundImage: 'linear-gradient(135deg, #93c5fd 0%, #006CF7 60%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            paddingTop: '0.15em',
-          }}>
-            30% Faster.
+          <span className="relative block overflow-hidden py-2" style={{ height: '7.25rem' }}>
+            <span className="absolute inset-0 flex items-center justify-center bg-gradient-to-r from-sky-300 to-blue-500 bg-clip-text text-transparent animate-hero-text-1">
+              Faster.
+            </span>
+            <span className="absolute inset-0 flex items-center justify-center bg-gradient-to-r from-sky-300 to-blue-500 bg-clip-text text-transparent animate-hero-text-2">
+              Efficient.
+            </span>
+            <span className="absolute inset-0 flex items-center justify-center bg-gradient-to-r from-sky-300 to-blue-500 bg-clip-text text-transparent animate-hero-text-3">
+              Intelligent.
+            </span>
           </span>
           Built for Scale.
         </h1>
@@ -121,7 +108,7 @@ export function HeroSection() {
         {/* Stats bar — floating glass pill */}
         <div
           ref={statsRef}
-          className="mx-auto mt-14 inline-grid grid-cols-3 glass-pill opacity-0"
+          className="hidden sm:inline-grid mx-auto mt-14 grid-cols-3 glass-pill opacity-0"
           style={{ gap: 0 }}
         >
           {stats.map((s, i) => (
@@ -146,8 +133,9 @@ export function HeroSection() {
         </div>
 
         {/* Scroll cue */}
-        <div className="mt-16 flex justify-center">
+        <div className="hidden sm:flex mt-16 justify-center">
           <ChevronDown size={22} className="animate-bounce-y text-slate-600" aria-hidden />
+        </div>
         </div>
       </div>
     </VideoBackground>

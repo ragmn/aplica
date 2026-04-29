@@ -23,12 +23,21 @@ export function TestimonialCard({ testimonial, className }: TestimonialCardProps
       }}
     >
       {/* Accent line + quote mark — "Editorial Quote" component from spec */}
-      <div className="mb-6 flex items-start gap-4">
+      <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start">
         <div
           className="mt-1 w-1 shrink-0 rounded-full"
           style={{ height: '2.25rem', backgroundColor: '#006CF7', opacity: 0.7 }}
           aria-hidden
         />
+        {testimonial.avatarSrc ? (
+          <div className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-slate-950 sm:mt-0">
+            <img
+              src={testimonial.avatarSrc}
+              alt={testimonial.author}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        ) : null}
         {/* Opening quote — large, Plus Jakarta Sans weight */}
         <span
           className="font-display font-extrabold leading-none select-none"

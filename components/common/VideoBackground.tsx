@@ -31,7 +31,7 @@ export function VideoBackground({
   }, [])
 
   return (
-    <div className={cn('relative overflow-hidden', className)}>
+    <div className={cn('relative overflow-hidden min-h-screen min-w-full h-screen w-full', className)} style={{ minHeight: '100vh' }}>
 
       {/* Poster — next/image with priority so the browser preload scanner fetches it immediately (LCP) */}
       <Image
@@ -72,7 +72,7 @@ export function VideoBackground({
       />
 
       {/* Content */}
-      <div className="relative" style={{ zIndex: 10 }}>
+      <div className="relative h-full" style={{ zIndex: 10 }}>
         {children}
       </div>
     </div>

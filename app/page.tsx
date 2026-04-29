@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { HeroSection } from '@/components/sections/HeroSection'
+import { PartnerLogosSection } from '@/components/sections/PartnerLogosSection'
 import { TrustBar } from '@/components/sections/TrustBar'
 
 // Below-fold sections are dynamically imported to split them into separate JS chunks.
@@ -42,6 +43,7 @@ export default function HomePage() {
     <>
       <HeroSection />
       <TrustBar />
+      <PartnerLogosSection />
       {/* Case studies lead — "we solved Y" before "we do X" */}
       <CaseStudiesPreview />
       <ScrollStorytelling />
