@@ -13,50 +13,53 @@ const config: Config = {
         // Base
         background: 'var(--background)',
         foreground: 'var(--foreground)',
-        // Design system: Fluid Monolith surfaces
+        // Design system: light surfaces
         surface: {
           DEFAULT: '#ffffff',
-          bg:      '#131313',
+          bg:      '#ffffff',
+          alt:     '#f8faff',
           container: {
-            lowest:  '#0e0e0e',
-            low:     '#1b1b1b',
-            DEFAULT: '#242424',
-            high:    '#2c2c2c',
-            highest: '#353535',
+            lowest:  '#f0f5ff',
+            low:     '#f8faff',
+            DEFAULT: '#ffffff',
+            high:    '#eff6ff',
+            highest: '#dbeafe',
           },
         },
         // CTA "Pulse" blue — use only for primary actions
         cta: {
           DEFAULT: '#006CF7',
-          light:   '#b0c6ff',
+          light:   '#eff6ff',
+          mid:     '#bfdbfe',
           dark:    '#004dbf',
         },
-        // Brand (indigo — supporting UI elements, gradients)
+        // Brand (blue — supporting UI elements)
         brand: {
-          50:  '#eef2ff',
-          100: '#e0e7ff',
-          200: '#c7d2fe',
-          300: '#a5b4fc',
-          400: '#818cf8',
-          500: '#6366f1',
-          600: '#4f46e5',
-          700: '#4338ca',
-          800: '#3730a3',
-          900: '#312e81',
-          950: '#1e1b4b',
+          50:  '#eff6ff',
+          100: '#dbeafe',
+          200: '#bfdbfe',
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',
+          950: '#172554',
         },
-        violet: {
-          50:  '#f5f3ff',
-          100: '#ede9fe',
-          200: '#ddd6fe',
-          300: '#c4b5fd',
-          400: '#a78bfa',
-          500: '#8b5cf6',
-          600: '#7c3aed',
-          700: '#6d28d9',
-          800: '#5b21b6',
-          900: '#4c1d95',
-          950: '#2e1065',
+        // Neutral slate
+        slate: {
+          50:  '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+          600: '#475569',
+          700: '#334155',
+          800: '#1e293b',
+          900: '#0f172a',
+          950: '#020617',
         },
         // Semantic
         card: 'var(--card)',
@@ -108,7 +111,7 @@ const config: Config = {
         xl:   '1rem',
         '2xl': '1.5rem',
         '3xl': '2rem',
-        island: '3rem',   // "Signature Curve" from Fluid Monolith spec
+        island: '3rem',
         full: '9999px',
       },
       keyframes: {
@@ -126,7 +129,7 @@ const config: Config = {
         },
         'pulse-glow': {
           '0%, 100%': { opacity: '1', boxShadow: '0 0 0 0 rgba(0,108,247,0)' },
-          '50%':       { opacity: '0.8', boxShadow: '0 0 32px 4px rgba(0,108,247,0.3)' },
+          '50%':       { opacity: '0.8', boxShadow: '0 0 32px 4px rgba(0,108,247,0.2)' },
         },
         shimmer: {
           from: { backgroundPosition: '0 0' },
@@ -136,45 +139,42 @@ const config: Config = {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%':       { transform: 'translateY(-8px)' },
         },
-        'hero-text-1': {
-          '0%, 16.66%': { opacity: '1', transform: 'translateY(0)' },
-          '20%, 100%':  { opacity: '0', transform: 'translateY(-10px)' },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%':       { transform: 'translateY(-12px)' },
         },
-        'hero-text-2': {
-          '0%, 33.33%':  { opacity: '0', transform: 'translateY(10px)' },
-          '36.66%, 50%': { opacity: '1', transform: 'translateY(0)' },
-          '53.33%, 100%': { opacity: '0', transform: 'translateY(-10px)' },
-        },
-        'hero-text-3': {
-          '0%, 66.66%':  { opacity: '0', transform: 'translateY(10px)' },
-          '70%, 83.33%': { opacity: '1', transform: 'translateY(0)' },
-          '86.66%, 100%': { opacity: '0', transform: 'translateY(-10px)' },
+        'float-slow': {
+          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+          '50%':       { transform: 'translateY(-8px) rotate(2deg)' },
         },
       },
       animation: {
-        'fade-up':      'fade-up 0.6s ease-out both',
-        'fade-in':      'fade-in 0.4s ease-out both',
-        marquee:        'marquee 30s linear infinite',
-        'pulse-glow':   'pulse-glow 2s ease-in-out infinite',
-        shimmer:        'shimmer 2s linear infinite',
-        'bounce-y':     'bounce-y 1.5s ease-in-out infinite',
-        'hero-text-1':  'hero-text-1 6s ease-in-out infinite',
-        'hero-text-2':  'hero-text-2 6s ease-in-out infinite',
-        'hero-text-3':  'hero-text-3 6s ease-in-out infinite',
+        'fade-up':    'fade-up 0.6s ease-out both',
+        'fade-in':    'fade-in 0.4s ease-out both',
+        marquee:      'marquee 35s linear infinite',
+        'pulse-glow': 'pulse-glow 2.5s ease-in-out infinite',
+        shimmer:      'shimmer 2s linear infinite',
+        'bounce-y':   'bounce-y 1.5s ease-in-out infinite',
+        float:        'float 4s ease-in-out infinite',
+        'float-slow': 'float-slow 6s ease-in-out infinite',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':  'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        // Hero radial glow — uses CTA blue instead of indigo
+        // Hero gradient (light blue tint)
+        'hero-light':
+          'linear-gradient(135deg, #f0f7ff 0%, #fafcff 60%, #f8f4ff 100%)',
+        // Soft blue radial for section accents
         'hero-glow':
-          'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0,108,247,0.25), transparent)',
+          'radial-gradient(ellipse 60% 40% at 70% 50%, rgba(0,108,247,0.08), transparent)',
         'card-glow':
-          'radial-gradient(ellipse 200% 100% at 50% 100%, rgba(0,108,247,0.10), transparent)',
+          'radial-gradient(ellipse 200% 100% at 50% 100%, rgba(0,108,247,0.05), transparent)',
         shimmer:
-          'linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent)',
-        // Primary CTA gradient (gem-like, per Fluid Monolith spec)
+          'linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent)',
         'cta-gradient':
-          'linear-gradient(135deg, #b0c6ff 0%, #006CF7 100%)',
+          'linear-gradient(135deg, #6eaaff 0%, #006CF7 100%)',
+        'section-gradient':
+          'linear-gradient(180deg, #ffffff 0%, #f8faff 100%)',
       },
       backdropBlur: {
         xs: '2px',
@@ -183,11 +183,17 @@ const config: Config = {
         spring: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
       },
       boxShadow: {
-        // "Ambient Bloom" — spec: blur 60px, spread 0, opacity 6%
-        ambient: '0 0 60px 0 rgba(0,0,0,0.06)',
+        // Light card shadow
+        card:       '0 1px 3px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.07)',
+        'card-hover':'0 4px 12px rgba(0,0,0,0.08), 0 16px 40px rgba(0,0,0,0.10)',
+        // Ambient
+        ambient:    '0 0 60px 0 rgba(0,0,0,0.04)',
         // CTA glow
-        cta: '0 8px 32px rgba(0,108,247,0.35)',
-        'cta-hover': '0 12px 40px rgba(0,108,247,0.50)',
+        cta:        '0 4px 20px rgba(0,108,247,0.28)',
+        'cta-hover':'0 8px 32px rgba(0,108,247,0.42)',
+        // Inner border (no 1px rule — use box-shadow)
+        'inner-border': 'inset 0 0 0 1px rgba(0,0,0,0.08)',
+        'inner-border-blue': 'inset 0 0 0 1.5px rgba(0,108,247,0.20)',
       },
     },
   },

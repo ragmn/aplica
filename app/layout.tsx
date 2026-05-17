@@ -3,6 +3,7 @@ import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { BackToTopBar } from '@/components/common/BackToTopBar'
 import { SmoothScrollProvider } from '@/components/providers/SmoothScrollProvider'
 import { JsonLd } from '@/components/common/JsonLd'
 import { organizationSchema } from '@/lib/schema'
@@ -80,7 +81,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0f172a',
+  themeColor: '#ffffff',
 }
 
 export default function RootLayout({
@@ -97,6 +98,7 @@ export default function RootLayout({
         <SmoothScrollProvider>
             <Header />
             <main>{children}</main>
+            <BackToTopBar />
             <Footer />
           </SmoothScrollProvider>
       </body>

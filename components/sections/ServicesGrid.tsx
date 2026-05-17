@@ -1,166 +1,258 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import {
-  Layers, BarChart3, TrendingUp, GitBranch, Shuffle, Headphones,
-  PieChart, Activity, Smartphone, Globe, ArrowRight, Check,
-  type LucideIcon,
-} from 'lucide-react'
-import { services } from '@/data/services'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ArrowRight, Check, Star } from 'lucide-react'
 
-const iconMap: Record<string, LucideIcon> = {
-  Layers, BarChart3, TrendingUp, GitBranch, Shuffle, Headphones,
-  PieChart, Activity, Smartphone, Globe,
-}
-
-const pillars = [
+const serviceGroups = [
   {
-    id: 'erp',
-    number: '01',
-    title: 'ERP Solutions',
-    subtitle: 'Microsoft Dynamics 365',
-    description:
-      'End-to-end D365 implementation — Finance, Supply Chain, CRM, and Managed Support. Fixed scope, fixed price.',
-    cta: { label: 'Explore ERP', href: '/solutions#erp' },
-    accentColor: '#006CF7',
+    id: 'strategy',
+    label: 'Strategy & Assessment',
+    icon: '🔍',
+    services: [
+      {
+        name: 'Discovery Workshop',
+        valueProp: 'Align your team and define a clear Microsoft 365 roadmap',
+        bullets: ['Current-state audit', 'Stakeholder alignment session', 'Prioritised 90-day roadmap'],
+        href: '/solutions#discovery',
+      },
+      {
+        name: 'M365 Readiness Assessment',
+        valueProp: 'Know exactly where you stand before you spend a pound',
+        bullets: ['Licence utilisation review', 'Security posture check', 'Adoption gap analysis'],
+        href: '/solutions#readiness',
+        badge: 'Free Starter',
+      },
+    ],
   },
   {
-    id: 'powerbi',
-    number: '02',
-    title: 'Microsoft Power BI',
-    subtitle: 'Data & Analytics',
-    description:
-      'Executive dashboards and analytics platforms that surface insight from your Dynamics 365 data estate.',
-    cta: { label: 'Explore Power BI', href: '/solutions#power-bi' },
-    accentColor: '#f59e0b',
+    id: 'deployment',
+    label: 'Deployment & Migration',
+    icon: '🚀',
+    services: [
+      {
+        name: 'M365 Tenant Setup & Migration',
+        valueProp: 'Move to Microsoft 365 with zero downtime and full data integrity',
+        bullets: ['Tenant design & provisioning', 'Email & data migration', 'Security baseline configuration'],
+        href: '/solutions#deployment',
+        badge: 'Most Popular',
+      },
+      {
+        name: 'SharePoint & Teams Configuration',
+        valueProp: 'Intranet and collaboration environments your people actually use',
+        bullets: ['Information architecture design', 'Teams governance framework', 'Permission and access controls'],
+        href: '/solutions#sharepoint-teams',
+      },
+    ],
   },
   {
-    id: 'webmobile',
-    number: '03',
-    title: 'Web & Mobile',
-    subtitle: 'Power Apps & Custom Dev',
-    description:
-      'Custom web apps, mobile tools, and Power Platform solutions built natively for the Microsoft ecosystem.',
-    cta: { label: 'Explore Dev', href: '/solutions#web-development' },
-    accentColor: '#10b981',
+    id: 'automation',
+    label: 'Automation & Integration',
+    icon: '⚡',
+    services: [
+      {
+        name: 'Power Platform',
+        valueProp: 'Automate manual processes and build apps without custom code',
+        bullets: ['Power Automate workflows', 'Power Apps for internal tools', 'Power BI reporting dashboards'],
+        href: '/solutions#power-platform',
+        badge: 'High ROI',
+      },
+      {
+        name: 'Azure Infrastructure & Cloud',
+        valueProp: 'Enterprise-grade cloud infrastructure, architected for growth',
+        bullets: ['Azure landing zone design', 'Hybrid identity (Entra ID)', 'Cost optimisation & governance'],
+        href: '/solutions#azure-devops',
+      },
+    ],
+  },
+  {
+    id: 'ai',
+    label: 'AI & Copilot',
+    icon: '🤖',
+    services: [
+      {
+        name: 'Microsoft Copilot Adoption',
+        valueProp: 'Turn Copilot licences into measurable productivity gains',
+        bullets: ['Copilot readiness assessment', 'Use-case prioritisation by role', 'Champions programme & training'],
+        href: '/solutions#copilot-d365',
+        badge: '🔥 Hot',
+      },
+      {
+        name: 'AI Consulting & Strategy',
+        valueProp: 'Build a responsible AI roadmap grounded in your business goals',
+        bullets: ['AI readiness scoring', 'Azure OpenAI integration', 'Governance & compliance framework'],
+        href: '/solutions#ai-consulting',
+      },
+    ],
+  },
+  {
+    id: 'training',
+    label: 'Training & Adoption',
+    icon: '📚',
+    services: [
+      {
+        name: 'End-User Training',
+        valueProp: 'Role-based training that drives lasting behaviour change',
+        bullets: ['Live and recorded sessions', 'Role-specific learning paths', 'Adoption metrics and tracking'],
+        href: '/solutions#training',
+      },
+      {
+        name: 'Champions Programme',
+        valueProp: 'Build internal advocates who sustain adoption long-term',
+        bullets: ['Champion selection & onboarding', 'Monthly community calls', 'Resource library & toolkits'],
+        href: '/solutions#champions',
+      },
+    ],
+  },
+  {
+    id: 'support',
+    label: 'Managed Support',
+    icon: '🛡️',
+    services: [
+      {
+        name: 'Managed M365 Helpdesk',
+        valueProp: 'UK-based support that resolves issues before they cost you',
+        bullets: ['Tiered helpdesk (L1–L3)', 'Proactive monitoring & alerts', 'Monthly health reports'],
+        href: '/solutions#support',
+        badge: 'Ongoing',
+      },
+      {
+        name: 'Governance & Licence Management',
+        valueProp: 'Stay compliant, cut waste, and keep your environment healthy',
+        bullets: ['Licence optimisation reviews', 'Governance policy templates', 'Security & compliance audits'],
+        href: '/solutions#governance',
+      },
+    ],
   },
 ]
 
 export function ServicesGrid() {
-  const svcByCategory = (cat: string) => services.filter((s) => s.category === cat)
+  const [activeGroup, setActiveGroup] = useState('strategy')
+  const group = serviceGroups.find((g) => g.id === activeGroup) ?? serviceGroups[0]
 
   return (
-    <section className="section-padding" style={{ backgroundColor: '#131313' }}>
+    <section className="section-padding section-alt" aria-labelledby="services-heading">
       <div className="container-xl">
 
         {/* Header */}
-        <div className="mb-16 max-w-2xl">
-          <p className="eyebrow mb-4">What We Do</p>
-          <h2
-            className="font-display font-extrabold text-white"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3.25rem)', lineHeight: 1.1, letterSpacing: '-0.025em' }}
-          >
-            Three specialisms.
-            <span
-              className="block"
-              style={{
-                backgroundImage: 'linear-gradient(135deg, #93c5fd 0%, #006CF7 60%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
+        <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-xl">
+            <span className="eyebrow mb-5">What We Do</span>
+            <h2
+              id="services-heading"
+              className="mt-5 font-display font-extrabold text-slate-900"
+              style={{ fontSize: 'clamp(1.875rem, 3.5vw, 2.75rem)', lineHeight: 1.1, letterSpacing: '-0.025em' }}
             >
-              One Microsoft ecosystem.
-            </span>
-          </h2>
-          <p className="mt-5 text-base leading-relaxed text-slate-400 max-w-lg">
-            From ERP core to analytics layer to custom apps — we cover the full Microsoft stack so you don&apos;t need three partners.
-          </p>
+              We meet you where you are.
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-slate-500">
+              Whether you&apos;re starting from scratch, fixing a failed deployment, or ready to unlock AI —
+              our six service areas cover every stage of the journey.
+            </p>
+          </div>
+          <Link
+            href="/solutions"
+            className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-blue-600 hover:underline"
+          >
+            View all services <ArrowRight size={14} />
+          </Link>
         </div>
 
-        {/* 3-pillar grid */}
-        <div className="grid gap-6 md:grid-cols-3">
-          {pillars.map((pillar, i) => {
-            const pillarServices = svcByCategory(pillar.id)
-            return (
-              <motion.div
-                key={pillar.id}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
-                className="flex flex-col rounded-3xl p-8"
-                style={{
-                  backgroundColor: '#1b1b1b',
-                  boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.06)',
-                }}
+        {/* Tab bar */}
+        <div
+          className="mb-8 flex flex-wrap gap-2 rounded-2xl bg-white p-1.5"
+          style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.06)' }}
+          role="tablist"
+          aria-label="Service categories"
+        >
+          {serviceGroups.map((g) => (
+            <button
+              key={g.id}
+              role="tab"
+              aria-selected={activeGroup === g.id}
+              aria-controls={`panel-${g.id}`}
+              onClick={() => setActiveGroup(g.id)}
+              className="flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-200"
+              style={
+                activeGroup === g.id
+                  ? {
+                      background: 'linear-gradient(135deg, #6eaaff 0%, #006CF7 100%)',
+                      color: 'white',
+                      boxShadow: '0 4px 16px rgba(0,108,247,0.25)',
+                    }
+                  : { color: '#475569' }
+              }
+            >
+              <span aria-hidden>{g.icon}</span>
+              <span className="hidden sm:inline">{g.label}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Service cards */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeGroup}
+            id={`panel-${activeGroup}`}
+            role="tabpanel"
+            aria-label={group.label}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            className="grid gap-6 md:grid-cols-2"
+          >
+            {group.services.map((svc) => (
+              <article
+                key={svc.name}
+                className="relative flex flex-col rounded-3xl bg-white p-8"
+                style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.07)' }}
               >
-                {/* Pillar number + accent bar */}
-                <div className="mb-6 flex items-center gap-3">
+                {/* Badge */}
+                {svc.badge && (
                   <span
-                    className="font-display text-4xl font-extrabold tabular-nums"
-                    style={{ color: pillar.accentColor, opacity: 0.9, letterSpacing: '-0.03em' }}
+                    className="absolute right-6 top-6 rounded-full px-3 py-1 text-xs font-bold"
+                    style={{ background: '#eff6ff', color: '#006CF7' }}
                   >
-                    {pillar.number}
+                    {svc.badge}
                   </span>
-                  <div
-                    className="h-px flex-1"
-                    style={{ backgroundColor: pillar.accentColor, opacity: 0.25 }}
-                  />
-                </div>
+                )}
 
-                {/* Pillar title */}
-                <p
-                  className="mb-1 text-xs font-bold uppercase tracking-widest"
-                  style={{ color: pillar.accentColor }}
-                >
-                  {pillar.subtitle}
-                </p>
-                <h3
-                  className="mb-4 font-display font-extrabold text-white"
-                  style={{ fontSize: '1.5rem', letterSpacing: '-0.015em', lineHeight: 1.2 }}
-                >
-                  {pillar.title}
+                <h3 className="mb-2 font-display text-xl font-bold text-slate-900 pr-20">
+                  {svc.name}
                 </h3>
-                <p className="mb-7 text-sm leading-relaxed text-slate-400">
-                  {pillar.description}
-                </p>
+                <p className="mb-6 text-sm leading-relaxed text-slate-500">{svc.valueProp}</p>
 
-                {/* Service list */}
-                <ul className="mb-8 flex-1 space-y-3">
-                  {pillarServices.map((svc) => {
-                    const Icon = iconMap[svc.icon] ?? Layers
-                    return (
-                      <li key={svc.id} className="flex items-center gap-3">
-                        <div
-                          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg"
-                          style={{ backgroundColor: `${pillar.accentColor}15` }}
-                        >
-                          <Icon size={13} style={{ color: pillar.accentColor }} />
-                        </div>
-                        <span className="text-sm font-medium text-slate-300">{svc.title}</span>
-                      </li>
-                    )
-                  })}
+                {/* Bullet list */}
+                <ul className="mb-8 flex-1 space-y-2.5">
+                  {svc.bullets.map((b) => (
+                    <li key={b} className="flex items-start gap-3">
+                      <div
+                        className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
+                        style={{ background: '#eff6ff' }}
+                      >
+                        <Check size={11} style={{ color: '#006CF7' }} aria-hidden />
+                      </div>
+                      <span className="text-sm text-slate-600">{b}</span>
+                    </li>
+                  ))}
                 </ul>
 
-                {/* CTA */}
                 <Link
-                  href={pillar.cta.href}
-                  className="inline-flex items-center gap-2 text-sm font-semibold transition-all duration-200 hover:gap-3"
-                  style={{ color: pillar.accentColor }}
+                  href={svc.href}
+                  className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 transition-all hover:gap-3"
+                  aria-label={`Learn more about ${svc.name}`}
                 >
-                  {pillar.cta.label}
-                  <ArrowRight size={14} aria-hidden />
+                  Learn more <ArrowRight size={14} aria-hidden />
                 </Link>
-              </motion.div>
-            )
-          })}
-        </div>
+              </article>
+            ))}
+          </motion.div>
+        </AnimatePresence>
 
-        {/* Trust footnote */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
+        {/* Bottom trust row */}
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
           {[
             'Fixed-scope engagements',
             'Certified Microsoft CSP',
@@ -169,7 +261,7 @@ export function ServicesGrid() {
           ].map((t) => (
             <div key={t} className="flex items-center gap-2">
               <Check size={13} style={{ color: '#006CF7' }} aria-hidden />
-              <span className="text-xs font-medium text-slate-400">{t}</span>
+              <span className="text-sm font-medium text-slate-500">{t}</span>
             </div>
           ))}
         </div>

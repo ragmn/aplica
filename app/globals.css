@@ -5,9 +5,9 @@
 /* ─── CSS Custom Properties ──────────────────────────────────────────────── */
 @layer base {
   :root {
-    /* Fluid Monolith: canvas is #131313 */
-    --color-bg:      #131313;
-    --color-surface: #ffffff;
+    /* Light theme canvas */
+    --color-bg:      #ffffff;
+    --color-surface: #f0f5ff;
     --color-cta:     #006CF7;
 
     --background: 0 0% 100%;
@@ -31,28 +31,6 @@
     --ring: 213 100% 48%;
     --radius: 0.625rem;
   }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 213 100% 48%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 213 100% 48%;
-  }
 }
 
 /* ─── Reset & Base ───────────────────────────────────────────────────────── */
@@ -67,11 +45,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 5.5rem;
   }
 
   [id] {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 5.5rem;
   }
 
   /* Lenis smooth scroll */
@@ -90,8 +68,8 @@
   }
 
   body {
-    background-color: #131313;
-    color: #f1f5f9; /* slate-100 */
+    background-color: #ffffff;
+    color: #1e293b;
     font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
   }
 
@@ -106,6 +84,11 @@
 
   h1, h2, h3, h4, h5, h6 {
     @apply tracking-tight;
+    color: #0f172a;
+  }
+
+  p {
+    color: #475569;
   }
 }
 
@@ -121,50 +104,89 @@
     @apply py-20 md:py-28 lg:py-32;
   }
 
-  /* ── CTA Buttons (Fluid Monolith "gem-like" gradient pill) ── */
+  /* Section alt background */
+  .section-alt {
+    background-color: #f8faff;
+  }
+
+  /* Section dark (for high-contrast CTA sections) */
+  .section-dark {
+    background-color: #0f172a;
+  }
+
+  /* ── CTA Buttons (Primary — gem-like gradient pill) ── */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2;
     @apply rounded-full px-7 py-3.5 text-sm font-semibold text-white;
     background: linear-gradient(135deg, #6eaaff 0%, #006CF7 100%);
-    box-shadow: 0 8px 32px rgba(0, 108, 247, 0.35);
+    box-shadow: 0 4px 20px rgba(0, 108, 247, 0.30);
     transition: box-shadow 0.25s ease, transform 0.15s ease;
   }
   .btn-primary:hover {
-    box-shadow: 0 12px 40px rgba(0, 108, 247, 0.55);
+    box-shadow: 0 8px 32px rgba(0, 108, 247, 0.45);
     transform: translateY(-1px);
   }
   .btn-primary:active {
     transform: scale(0.97);
   }
 
-  /* ── Ghost Button (Secondary — "The No-Line Rule") ── */
+  /* ── Ghost Button (light bg version) ── */
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2;
-    @apply rounded-full px-7 py-3.5 text-sm font-semibold text-white;
+    @apply rounded-full px-7 py-3.5 text-sm font-semibold text-slate-700;
     background: transparent;
-    /* Ghost Border: outline_variant at 15% opacity — felt, not seen */
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(8px);
-    background-color: rgba(255, 255, 255, 0.05);
-    transition: background-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    box-shadow: inset 0 0 0 1.5px rgba(0, 0, 0, 0.14);
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.15s, color 0.2s;
   }
   .btn-ghost:hover {
-    background-color: rgba(255, 255, 255, 0.10);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.30);
+    background-color: rgba(0, 108, 247, 0.05);
+    box-shadow: inset 0 0 0 1.5px rgba(0, 108, 247, 0.40);
+    color: #006CF7;
   }
   .btn-ghost:active {
     transform: scale(0.97);
   }
 
-  /* ── Surface Island (white container on dark bg — Fluid Monolith Layer 2) ── */
-  .surface-island {
-    @apply bg-white text-slate-900;
-    border-radius: 3rem; /* island radius */
-    padding: 3rem;       /* generous internal padding per spec */
+  /* ── Ghost Button (dark bg version) ── */
+  .btn-ghost-dark {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply rounded-full px-7 py-3.5 text-sm font-semibold text-white;
+    background: transparent;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.15s;
+  }
+  .btn-ghost-dark:hover {
+    background-color: rgba(255, 255, 255, 0.10);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.30);
   }
 
-  /* ── Glass Pill (Action Pill / floating nav — glassmorphism) ── */
+  /* ── Surface Card (light) ── */
+  .surface-card {
+    @apply bg-white rounded-3xl;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.07);
+  }
+
+  /* ── Surface Island (white on page) ── */
+  .surface-island {
+    @apply bg-white text-slate-900;
+    border-radius: 3rem;
+    padding: 3rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05), 0 16px 48px rgba(0,0,0,0.08);
+  }
+
+  /* ── Glass Pill (Action Pill / floating nav — light version) ── */
   .glass-pill {
+    background: rgba(255, 255, 255, 0.90);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 9999px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.10);
+  }
+
+  /* ── Glass Pill Dark (dark bg nav) ── */
+  .glass-pill-dark {
     background: rgba(14, 14, 14, 0.80);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -172,33 +194,43 @@
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
   }
 
-  /* ── Glass Card ── */
+  /* ── Glass Card (light) ── */
   .glass-card {
-    @apply rounded-2xl;
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    @apply rounded-2xl bg-white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.06);
   }
 
-  /* Gradient text — updated to use CTA blue */
+  /* ── Feature icon container ── */
+  .feature-icon {
+    @apply inline-flex items-center justify-center rounded-2xl;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    box-shadow: inset 0 0 0 1px rgba(0,108,247,0.10);
+  }
+
+  /* Gradient text — CTA blue */
   .gradient-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #93c5fd 0%, #006CF7 100%);
+    background-image: linear-gradient(135deg, #3b82f6 0%, #006CF7 100%);
   }
 
-  /* Glow border effect */
+  /* Gradient text dark (for use on light bg) */
+  .gradient-text-dark {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #1d4ed8 0%, #006CF7 60%);
+  }
+
+  /* Glow border effect (light bg) */
   .glow-border {
-    @apply relative rounded-2xl;
+    @apply relative rounded-3xl;
   }
   .glow-border::before {
     content: '';
-    @apply absolute inset-0 -z-10 rounded-2xl opacity-0 transition-opacity duration-300;
-    background: linear-gradient(135deg, #006CF7, #8b5cf6);
-    filter: blur(16px);
+    @apply absolute inset-0 -z-10 rounded-3xl opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, #006CF7, #3b82f6);
+    filter: blur(20px);
   }
   .glow-border:hover::before {
-    @apply opacity-30;
+    @apply opacity-15;
   }
 
   /* Split text character wrapper */
@@ -223,18 +255,47 @@
 
   /* Section eyebrow label */
   .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-widest;
-    color: #93c5fd; /* brand-300 equivalent for blue */
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest;
+    color: #006CF7;
+  }
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 1.25rem;
+    height: 2px;
+    background: #006CF7;
+    border-radius: 9999px;
+    flex-shrink: 0;
+  }
+
+  /* Step badge */
+  .step-badge {
+    @apply inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-display text-sm font-bold text-white;
+    background: linear-gradient(135deg, #6eaaff 0%, #006CF7 100%);
+    box-shadow: 0 4px 16px rgba(0,108,247,0.25);
+  }
+
+  /* Sector icon bg */
+  .sector-icon-bg {
+    @apply inline-flex h-12 w-12 items-center justify-center rounded-2xl;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  }
+
+  /* Tag pill */
+  .tag-pill {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold;
+    background: rgba(0, 108, 247, 0.08);
+    color: #006CF7;
   }
 }
 
 /* ─── Prose Overrides ────────────────────────────────────────────────────── */
 @layer utilities {
   .prose-aplica {
-    @apply prose prose-invert prose-slate max-w-none;
+    @apply prose prose-slate max-w-none;
     @apply prose-headings:font-display prose-headings:tracking-tight;
     @apply prose-a:text-cta prose-a:no-underline hover:prose-a:underline;
-    @apply prose-code:text-violet-300 prose-code:bg-slate-800 prose-code:rounded prose-code:px-1;
-    @apply prose-blockquote:border-l-cta prose-blockquote:text-slate-300;
+    @apply prose-code:text-blue-700 prose-code:bg-blue-50 prose-code:rounded prose-code:px-1;
+    @apply prose-blockquote:border-l-cta prose-blockquote:text-slate-600;
   }
 }

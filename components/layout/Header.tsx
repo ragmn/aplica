@@ -5,10 +5,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown, Menu, X } from 'lucide-react'
+import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { navigation } from '@/data/navigation'
 import { NavItem } from '@/types'
+
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -17,7 +18,7 @@ export function Header() {
   const pathname = usePathname()
 
   const handleScroll = useCallback(() => {
-    setScrolled(window.scrollY > 40)
+    setScrolled(window.scrollY > 48)
   }, [])
 
   useEffect(() => {
@@ -25,94 +26,99 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [handleScroll])
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileOpen(false)
     setActiveDropdown(null)
   }, [pathname])
 
   return (
-    <>
-      <header
-        className={cn(
-          'fixed inset-x-0 top-0 z-50 transition-all duration-500',
-          scrolled
-            ? 'border-b border-white/5 backdrop-blur-xl'
-            : 'bg-transparent'
-        )}
-        style={scrolled ? { backgroundColor: 'rgba(19,19,19,0.88)' } : undefined}
+    <header
+      className={cn(
+        'sticky top-0 z-50 w-full transition-all duration-300',
+        scrolled
+          ? 'bg-[#131313] backdrop-blur-xl'
+          : 'bg-[#131313] backdrop-blur-md'
+      )}
+      style={{ boxShadow: 'inset 0 -1px 0 rgba(255,255,255,0.07)' }}
+    >
+      <nav
+        className="container-xl flex h-16 items-center justify-between"
+        aria-label="Main navigation"
       >
-        <nav className="container-xl flex h-18 items-center justify-between py-4">
-          {/* Logo */}
-          <Link href="/" className="group flex items-center">
-            <Image
-              src="/logo.png"
-              alt="Aplica Technology"
-              width={1486}
-              height={567}
-              style={{ height: '2.25rem', width: 'auto' }}
-              priority
+        {/* Logo */}
+        <Link href="/" className="group flex shrink-0 items-center" aria-label="Aplica homepage">
+          <Image
+            src="/logo.png"
+            alt="Aplica Technology"
+            width={1486}
+            height={567}
+            style={{ height: '2rem', width: 'auto' }}
+            priority
+          />
+        </Link>
+
+        {/* Desktop nav */}
+        <ul className="hidden items-center gap-1 lg:flex" role="list">
+          {navigation.map((item) => (
+            <NavLink
+              key={item.href + item.label}
+              item={item}
+              activeDropdown={activeDropdown}
+              setActiveDropdown={setActiveDropdown}
             />
-          </Link>
+          ))}
+        </ul>
 
-          {/* Desktop nav */}
-          <ul className="hidden items-center gap-2 lg:flex">
-            {navigation.map((item) => (
-              <NavLink
-                key={item.href}
-                item={item}
-                activeDropdown={activeDropdown}
-                setActiveDropdown={setActiveDropdown}
-              />
-            ))}
-          </ul>
-
-          {/* Desktop CTA */}
-          <div className="hidden items-center gap-3 lg:flex">
-            <Link
-              href="/contact#book"
-              className="rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:brightness-110 active:scale-95"
-              style={{
-                background: 'linear-gradient(135deg, #6eaaff 0%, #006CF7 100%)',
-                boxShadow: '0 4px 20px rgba(0,108,247,0.30)',
-              }}
-            >
-              Book a Demo
-            </Link>
-          </div>
-
-          {/* Mobile toggle */}
-          <button
-            onClick={() => setMobileOpen((o) => !o)}
-            className="flex h-11 w-11 items-center justify-center rounded-lg text-slate-300 hover:text-white lg:hidden"
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+        {/* Desktop CTA */}
+        <div className="hidden items-center gap-3 lg:flex">
+          <Link
+            href="/contact"
+            className="text-sm font-semibold text-white/70 transition-colors hover:text-white"
           >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </nav>
-      </header>
+            Contact
+          </Link>
+          <Link
+            href="/contact#book"
+            className="btn-primary text-sm"
+            data-cta="header-book-call"
+            aria-label="Book a free discovery call"
+          >
+            Book a Free Call
+          </Link>
+        </div>
+
+        {/* Mobile toggle */}
+        <button
+          onClick={() => setMobileOpen((o) => !o)}
+          className="flex h-10 w-10 items-center justify-center rounded-lg text-white/70 hover:bg-white/10 hover:text-white lg:hidden"
+          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileOpen}
+        >
+          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </nav>
 
       {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -12 }}
+            initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="fixed inset-x-0 top-[72px] z-40 border-b border-white/5 backdrop-blur-xl lg:hidden"
-            style={{ backgroundColor: 'rgba(19,19,19,0.97)' }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="bg-[#131313] lg:hidden"
+            style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.07)' }}
           >
-            <div className="container-xl py-6">
-              <ul className="space-y-1">
+            <div className="container-xl py-5">
+              <ul className="space-y-1" role="list">
                 {navigation.map((item) => (
-                  <li key={item.href}>
+                  <li key={item.href + item.label}>
                     {item.children ? (
                       <MobileAccordion item={item} />
                     ) : (
                       <Link
                         href={item.href}
-                        className="block rounded-lg px-4 py-3 text-base font-medium text-slate-200 hover:bg-white/5 hover:text-white"
+                        className="block rounded-xl px-4 py-3 text-base font-semibold text-white/80 hover:bg-white/5 hover:text-white"
                       >
                         {item.label}
                       </Link>
@@ -120,30 +126,30 @@ export function Header() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-6 flex flex-col gap-3 border-t border-white/10 pt-6">
+              <div className="mt-5 flex flex-col gap-3 pt-5" style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.07)' }}>
                 <Link
                   href="/contact"
-                  className="rounded-lg border border-white/20 px-4 py-3 text-center text-sm font-medium text-slate-200 hover:border-white/40 hover:text-white"
+                  className="rounded-xl px-4 py-3 text-center text-sm font-semibold text-white/70 hover:text-white"
+                  style={{ boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.12)' }}
                 >
                   Talk to Our Team
                 </Link>
                 <Link
                   href="/contact#book"
-                  className="rounded-full px-4 py-3 text-center text-sm font-semibold text-white"
-                  style={{ background: 'linear-gradient(135deg, #6eaaff 0%, #006CF7 100%)' }}
+                  className="btn-primary text-center text-sm"
+                  data-cta="mobile-book-call"
                 >
-                  Book a Free Consultation
+                  Book a Free Discovery Call
                 </Link>
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </header>
   )
 }
 
-// Desktop nav link with dropdown
 function NavLink({
   item,
   activeDropdown,
@@ -164,20 +170,25 @@ function NavLink({
       <li>
         <Link
           href={item.href}
-          className="relative block px-3 py-2 text-base font-semibold text-white"
+          className={cn(
+            'relative block rounded-lg px-3.5 py-2 text-sm font-semibold transition-colors',
+            isActive ? 'text-cta' : 'text-white/75 hover:text-white'
+          )}
         >
           {item.label}
-          <motion.span
-            className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full bg-white"
-            initial={false}
-            animate={{ scaleX: isActive ? 1 : 0 }}
-            transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
-            style={{ originX: 0 }}
-          />
+          {isActive && (
+            <span
+              className="absolute bottom-0 left-3.5 right-3.5 h-0.5 rounded-full"
+              style={{ background: '#006CF7' }}
+            />
+          )}
         </Link>
       </li>
     )
   }
+
+  const isMegaMenu = item.label === 'Services'
+  const isOutcomesMenu = item.label === 'Solutions'
 
   return (
     <li
@@ -186,45 +197,104 @@ function NavLink({
       onMouseLeave={() => setActiveDropdown(null)}
     >
       <button
-        className="relative flex items-center gap-1 px-3 py-2 text-base font-semibold text-white"
+        className={cn(
+          'flex items-center gap-1 rounded-lg px-3.5 py-2 text-sm font-semibold transition-colors',
+          isActive ? 'text-cta' : 'text-white/75 hover:text-white'
+        )}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
       >
         {item.label}
         <ChevronDown
-          size={14}
-          className={cn('transition-transform duration-200', isOpen && 'rotate-180')}
-        />
-        <motion.span
-          className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full bg-white"
-          initial={false}
-          animate={{ scaleX: isActive ? 1 : 0 }}
-          transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
-          style={{ originX: 0 }}
+          size={13}
+          className={cn('text-white/40 transition-transform duration-200', isOpen && 'rotate-180')}
         />
       </button>
 
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 8, scale: 0.96 }}
+            initial={{ opacity: 0, y: 10, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, scale: 0.96 }}
-            transition={{ duration: 0.18, ease: 'easeOut' }}
+            exit={{ opacity: 0, y: 10, scale: 0.97 }}
+            transition={{ duration: 0.16, ease: 'easeOut' }}
             className={cn(
-              'absolute left-0 top-full mt-2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-2xl shadow-black/50 backdrop-blur-xl',
-              item.children.length > 8 ? 'w-[500px]' : 'w-64'
+              'absolute left-0 top-full mt-2 rounded-2xl bg-white shadow-xl',
+              isMegaMenu ? 'w-[560px]' : isOutcomesMenu ? 'w-72' : 'w-60'
             )}
+            style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06)', border: '1px solid rgba(0,0,0,0.07)' }}
+            role="menu"
           >
-            <div className={cn(item.children.length > 8 && 'grid grid-cols-2 gap-x-1')}>
-            {item.children.map((child) => (
-              <Link
-                key={child.href}
-                href={child.href}
-                className="block rounded-lg px-3 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
-              >
-                {child.label}
-              </Link>
-            ))}
-            </div>
+            {isMegaMenu ? (
+              <div className="p-2">
+                <p className="px-3 pb-2 pt-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                  What we do
+                </p>
+                <div className="grid grid-cols-2">
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.href}
+                      href={child.href}
+                      className="group flex items-center justify-between rounded-lg px-3 py-2.5 transition-colors hover:bg-slate-50"
+                      role="menuitem"
+                    >
+                      <span className="text-sm font-medium text-slate-600 transition-colors group-hover:text-slate-900">
+                        {child.label}
+                      </span>
+                      <ArrowRight
+                        size={11}
+                        className="shrink-0 text-slate-300 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0"
+                      />
+                    </Link>
+                  ))}
+                </div>
+                <div className="mt-1 border-t border-slate-100 px-3 pt-3 pb-2">
+                  <Link
+                    href="/contact#book"
+                    className="flex items-center gap-2 text-xs font-semibold text-cta hover:underline"
+                    data-cta="nav-book-call"
+                  >
+                    Book a free discovery call
+                    <ArrowRight size={11} />
+                  </Link>
+                </div>
+              </div>
+            ) : isOutcomesMenu ? (
+              <div className="p-2">
+                <p className="px-3 pb-2 pt-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                  Outcomes
+                </p>
+                {item.children.map((child) => (
+                  <Link
+                    key={child.href}
+                    href={child.href}
+                    className="group flex items-center justify-between rounded-lg px-3 py-2.5 transition-colors hover:bg-slate-50"
+                    role="menuitem"
+                  >
+                    <span className="text-sm font-medium text-slate-600 transition-colors group-hover:text-slate-900">
+                      {child.label}
+                    </span>
+                    <ArrowRight
+                      size={11}
+                      className="shrink-0 text-slate-300 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0"
+                    />
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <div className="p-2">
+                {item.children.map((child) => (
+                  <Link
+                    key={child.href}
+                    href={child.href}
+                    className="block rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 hover:text-slate-900"
+                    role="menuitem"
+                  >
+                    {child.label}
+                  </Link>
+                ))}
+              </div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
@@ -232,7 +302,6 @@ function NavLink({
   )
 }
 
-// Mobile accordion for items with children
 function MobileAccordion({ item }: { item: NavItem }) {
   const [open, setOpen] = useState(false)
 
@@ -240,12 +309,13 @@ function MobileAccordion({ item }: { item: NavItem }) {
     <div>
       <button
         onClick={() => setOpen((o) => !o)}
-        className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-base font-medium text-slate-200 hover:bg-white/5 hover:text-white"
+        className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-base font-semibold text-white/80 hover:bg-white/5 hover:text-white"
+        aria-expanded={open}
       >
         {item.label}
         <ChevronDown
           size={16}
-          className={cn('transition-transform duration-200', open && 'rotate-180')}
+          className={cn('text-white/40 transition-transform duration-200', open && 'rotate-180')}
         />
       </button>
       <AnimatePresence>
@@ -254,14 +324,15 @@ function MobileAccordion({ item }: { item: NavItem }) {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25 }}
+            transition={{ duration: 0.22 }}
             className="overflow-hidden pl-4"
+            role="list"
           >
             {item.children?.map((child) => (
               <li key={child.href}>
                 <Link
                   href={child.href}
-                  className="block rounded-lg px-4 py-2.5 text-sm text-slate-400 hover:text-white"
+                  className="block rounded-lg px-4 py-2.5 text-sm font-medium text-white/60 hover:bg-white/5 hover:text-white"
                 >
                   {child.label}
                 </Link>
