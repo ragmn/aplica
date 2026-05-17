@@ -16,7 +16,7 @@ const credentials = [
     bg: '#f0fafc',
   },
   {
-    designation: 'Azure — Cloud & AI',
+    designation: 'Azure: Cloud and AI',
     description: 'Azure infrastructure, OpenAI, and AI strategy',
     color: '#0078D4',
     bg: '#f0f6fd',
@@ -76,9 +76,9 @@ export function PartnerCredentials() {
             </h2>
           </div>
           <p className="text-lg leading-relaxed text-slate-500 lg:max-w-md lg:text-right">
-            Our accreditations aren&apos;t just logos — they represent the expertise your
-            organisation gets on every engagement. Earned through rigorous assessment,
-            maintained through continuous delivery.
+            Our accreditations are not just logos. They represent the expertise your
+            organisation gets on every engagement, earned through rigorous assessment
+            and maintained through continuous delivery.
           </p>
         </div>
 

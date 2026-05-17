@@ -32,9 +32,9 @@ const FinalCTASection = dynamic(() =>
 )
 
 export const metadata: Metadata = {
-  title: 'Microsoft 365 Partner UK & Europe | M365 Implementation — Aplica',
+  title: 'Microsoft Dynamics 365 ERP Partner UK and Europe | 18 Years Experience | Aplica',
   description:
-    'Expert Microsoft 365 implementation for organisations across the UK and Europe. Certified Microsoft Solutions Partner. M365 deployment, Copilot adoption, Power Platform, Dynamics 365 ERP, and managed support.',
+    'Aplica brings 18 years of Dynamics 365 ERP implementation expertise from India and the GCC to Europe. 200+ go-lives, Microsoft Solutions Partner. Business Central, Finance and Operations, CRM, Power Platform, delivered on time.',
   alternates: {
     canonical: 'https://aplicatech.com',
   },

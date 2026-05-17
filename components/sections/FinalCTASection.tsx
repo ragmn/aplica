@@ -6,8 +6,8 @@ import { ArrowRight, Mail, Shield } from 'lucide-react'
 
 const reassurances = [
   'No lock-in contracts',
-  'UK-based team',
-  'Microsoft certified',
+  'Microsoft D365 certified',
+  '18 years ERP experience',
   'Fixed-scope engagements',
 ]
 
@@ -50,7 +50,7 @@ export function FinalCTASection() {
               className="mt-4 font-display font-extrabold text-white"
               style={{ fontSize: 'clamp(2rem, 4vw, 3.25rem)', lineHeight: 1.05, letterSpacing: '-0.03em' }}
             >
-              Ready to get the most from
+              Ready to bring enterprise ERP
               <span
                 className="block"
                 style={{
@@ -60,12 +60,12 @@ export function FinalCTASection() {
                   backgroundClip: 'text',
                 }}
               >
-                Microsoft 365?
+                to your European operations?
               </span>
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-slate-400">
-              Speak with a senior consultant within 24 hours. No sales pitch — just an honest
-              conversation about your goals and how we can help.
+              Speak with a senior D365 consultant within 24 hours. No sales pitch. Just an honest
+              conversation about your goals, your data, and whether Dynamics 365 is the right fit.
             </p>
 
             {/* Reassurances */}

@@ -8,33 +8,22 @@ import { ArrowRight, CheckCircle, Phone } from 'lucide-react'
 
 const trustBadges = [
   'Microsoft Solutions Partner',
-  'Certified Consultants',
-  '200+ Organisations Transformed',
-  'UK-Based Team',
+  '18 Years ERP Experience',
+  '200+ D365 Go-Lives',
+  'India · GCC · Europe',
 ]
 
-const stats = [
-  { val: '200+', label: 'Implementations' },
-  { val: '94',   label: 'Avg. Days to Go-Live' },
-  { val: '98%',  label: 'Client Retention' },
-  { val: '15+',  label: 'Countries Served' },
-]
 
 export function HeroSection() {
-  const eyebrowRef  = useRef<HTMLDivElement>(null)
   const headlineRef = useRef<HTMLHeadingElement>(null)
   const subRef      = useRef<HTMLParagraphElement>(null)
   const ctaRef      = useRef<HTMLDivElement>(null)
   const badgesRef   = useRef<HTMLDivElement>(null)
-  const statsRef    = useRef<HTMLDivElement>(null)
   const illustRef   = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ delay: 0.1 })
-      tl.fromTo(eyebrowRef.current,
-        { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }
-      )
       tl.fromTo(headlineRef.current,
         { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' }, '-=0.3'
       )
@@ -73,16 +62,11 @@ export function HeroSection() {
         aria-hidden
       />
 
-      <div className="container-xl relative py-20 md:py-24 lg:py-28">
+      <div className="container-xl relative pt-10 pb-20 md:pt-12 md:pb-24 lg:pt-14 lg:pb-28">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
 
           {/* Left — content */}
           <div className="flex flex-col items-start">
-            {/* Eyebrow */}
-            <div ref={eyebrowRef} className="opacity-0">
-              <span className="eyebrow mb-6">Microsoft 365 Partner · UK &amp; Europe</span>
-            </div>
-
             {/* Headline */}
             <h1
               ref={headlineRef}
@@ -93,7 +77,7 @@ export function HeroSection() {
                 letterSpacing: '-0.03em',
               }}
             >
-              Microsoft 365 is
+              18 Years of ERP Excellence.
               <br />
               <span
                 style={{
@@ -103,12 +87,8 @@ export function HeroSection() {
                   backgroundClip: 'text',
                 }}
               >
-                Powerful.
+                Now Serving Europe.
               </span>
-              <br />
-              Getting it Right is
-              <br />
-              the Difference.
             </h1>
 
             {/* Sub */}
@@ -116,9 +96,9 @@ export function HeroSection() {
               ref={subRef}
               className="mt-6 max-w-lg text-lg leading-relaxed text-slate-600 opacity-0"
             >
-              We help organisations across the UK &amp; Europe unlock the full value of
-              Microsoft 365 — from seamless migrations and Copilot adoption to
-              Dynamics 365 ERP and Power Platform.
+              Aplica brings battle-tested Microsoft Dynamics 365 expertise, built across 200+
+              implementations in India and the GCC, to businesses across the UK and Europe.
+              Enterprise-grade ERP delivery, without the enterprise-sized price tag.
             </p>
 
             {/* CTAs */}
@@ -130,7 +110,7 @@ export function HeroSection() {
                 href="/contact#book"
                 className="btn-primary"
                 data-cta="hero-primary"
-                aria-label="Book a free discovery call"
+                aria-label="Book a free ERP discovery call"
               >
                 Book a Free Discovery Call
                 <ArrowRight size={15} aria-hidden />
@@ -140,7 +120,7 @@ export function HeroSection() {
                 className="btn-ghost"
                 data-cta="hero-secondary"
               >
-                See Our Work
+                View Case Studies
                 <ArrowRight size={15} aria-hidden />
               </Link>
             </div>
@@ -173,41 +153,23 @@ export function HeroSection() {
                 +44 20 0000 0000
               </a>
               <span className="text-slate-300" aria-hidden>·</span>
-              <span className="text-sm text-slate-400">Free 30-min consultation</span>
+              <span className="text-sm text-slate-400">Free 30-min ERP consultation</span>
             </div>
           </div>
 
           {/* Right — illustration */}
           <div ref={illustRef} className="relative hidden opacity-0 lg:flex lg:items-center lg:justify-center">
             <Image
-              src="/images/PowerApps_trans.png"
+              src="/images/eco_system_trans.png"
               alt="Microsoft Power Apps"
-              width={600}
-              height={600}
-              className="w-full max-w-lg"
+              width={800}
+              height={800}
+              className="w-full max-w-2xl"
               priority
             />
           </div>
         </div>
 
-        {/* Stats bar */}
-        <div
-          ref={statsRef}
-          className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-slate-100 sm:grid-cols-4"
-          style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.06)' }}
-        >
-          {stats.map((s) => (
-            <div key={s.label} className="flex flex-col items-center bg-white px-6 py-6">
-              <p
-                className="font-display font-extrabold text-slate-900"
-                style={{ fontSize: '1.875rem', lineHeight: 1, letterSpacing: '-0.03em' }}
-              >
-                {s.val}
-              </p>
-              <p className="mt-1 text-xs font-medium text-slate-400">{s.label}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   )

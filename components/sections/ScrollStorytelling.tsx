@@ -8,19 +8,19 @@ import { stats } from '@/data/content'
 
 const panels = [
   {
-    label: '01 — The Problem',
+    label: '01: The Problem',
     heading: 'ERP projects fail.\nCost overruns. Delays.\nScope creep.',
-    body: '68% of ERP implementations go over budget or schedule. Teams lose months — and millions — to poor planning, wrong partners, and underestimated complexity.',
+    body: '68% of ERP implementations go over budget or schedule. Teams lose months and millions to poor planning, wrong partners, and underestimated complexity.',
     accent: 'text-red-400',
   },
   {
-    label: '02 — Our Approach',
+    label: '02: Our Approach',
     heading: 'Fixed scope.\nFast delivery.\nProven methodology.',
     body: 'Our 100-day Fast Track methodology delivers working systems, not promises. Pre-built industry configs, a dedicated project team, and a transparent milestone plan.',
     accent: 'text-[#006CF7]',
   },
   {
-    label: '03 — The Results',
+    label: '03: The Results',
     heading: 'Real outcomes.\nMeasured ROI.\nLong-term partnership.',
     body: '200+ live implementations. 98% client retention. Average go-live in 94 days. We stay with you after go-live so your investment keeps delivering.',
     accent: 'text-emerald-400',

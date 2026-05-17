@@ -55,7 +55,7 @@ export function SMBEnterpriseSection() {
             Built for both ends of the market.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-slate-400">
-            Same Microsoft expertise — different delivery model. Choose the path that fits your scale.
+            Same Microsoft expertise, different delivery model. Choose the path that fits your scale.
           </p>
         </div>
 

@@ -11,9 +11,9 @@ const iconMap: Record<string, LucideIcon> = {
 }
 
 const resourceTypes = [
-  { label: 'Blog & Insights', href: '/insights', icon: '📝', desc: 'Expert commentary on Microsoft 365, Copilot, and digital transformation.' },
-  { label: 'Webinars & Events', href: '/insights#webinars', icon: '🎙️', desc: 'Live and on-demand sessions from our Microsoft-certified consultants.' },
-  { label: 'Licensing Guide', href: '/insights#licensing', icon: '📋', desc: 'Cut through Microsoft licensing complexity with our plain-English guide.' },
+  { label: 'Blog & Insights', href: '/insights', icon: '▤', desc: 'Expert commentary on Dynamics 365, ERP strategy, and digital transformation for European businesses.' },
+  { label: 'Webinars & Events', href: '/insights#webinars', icon: '▶', desc: 'Live and on-demand sessions from our Microsoft D365-certified consultants.' },
+  { label: 'Licensing Guide', href: '/insights#licensing', icon: '▦', desc: 'Cut through Dynamics 365 licensing complexity with our plain-English guide.' },
 ]
 
 export function LeadMagnetsSection() {
@@ -30,7 +30,7 @@ export function LeadMagnetsSection() {
               className="mt-5 font-display font-extrabold text-slate-900"
               style={{ fontSize: 'clamp(1.875rem, 3.5vw, 2.75rem)', lineHeight: 1.1, letterSpacing: '-0.025em' }}
             >
-              Learn before you buy.
+              Make the right ERP decision.
               <span
                 className="block"
                 style={{
@@ -40,11 +40,11 @@ export function LeadMagnetsSection() {
                   backgroundClip: 'text',
                 }}
               >
-                Explore our free guides.
+                Start with our free guides.
               </span>
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-slate-500">
-              Built for UK and European decision-makers evaluating Microsoft 365 investments.
+              Practical resources for European finance and operations leaders evaluating Dynamics 365.
             </p>
           </div>
           <Link

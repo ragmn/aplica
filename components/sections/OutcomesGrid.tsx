@@ -6,41 +6,40 @@ const outcomes = [
   {
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#006CF7" strokeWidth="2" strokeLinecap="round" />
-        <circle cx="9" cy="7" r="4" stroke="#006CF7" strokeWidth="2" />
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="#006CF7" strokeWidth="2" strokeLinecap="round" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="#006CF7" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="12" cy="12" r="10" stroke="#006CF7" strokeWidth="2" />
+        <path d="M12 6v6l4 2" stroke="#006CF7" strokeWidth="2" strokeLinecap="round" />
       </svg>
     ),
-    headline: 'Faster Adoption, Less Frustration',
-    body: 'Users actually use the tools they\'re given. We combine technical deployment with change management and structured training that sticks.',
-    proof: '85% avg. user adoption within 6 weeks',
+    headline: '18 Years of ERP Depth',
+    body: 'Not a generalist. We have spent 18 years implementing Microsoft Dynamics 365 across manufacturing, distribution, finance, and retail, in some of the world\'s most demanding markets.',
+    proof: '200+ D365 implementations delivered',
     accent: '#eff6ff',
     accentBorder: '#bfdbfe',
   },
   {
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
-        <rect x="2" y="3" width="20" height="14" rx="2" stroke="#006CF7" strokeWidth="2" />
-        <path d="M8 21h8M12 17v4" stroke="#006CF7" strokeWidth="2" strokeLinecap="round" />
-        <path d="M7 8l3 3 5-5" stroke="#006CF7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="12" cy="12" r="2" stroke="#006CF7" strokeWidth="2" />
+        <path d="M12 2a10 10 0 0 1 0 20A10 10 0 0 1 12 2z" stroke="#006CF7" strokeWidth="2" />
+        <path d="M2 12h4M18 12h4M12 2v4M12 18v4" stroke="#006CF7" strokeWidth="2" strokeLinecap="round" />
       </svg>
     ),
-    headline: 'One Partner Across the Full Stack',
-    body: 'From Azure to Power Platform to Teams and Dynamics 365 — no vendor-juggling, no knowledge gaps, no finger-pointing between partners.',
-    proof: '12 Microsoft certifications across our team',
+    headline: 'Proven in Demanding Markets',
+    body: 'We have successfully navigated complex multi-entity rollouts, strict regulatory environments, and tight go-live windows across India and the GCC. That rigour now comes to Europe.',
+    proof: 'Live across 22+ countries, 3 continents',
     accent: '#f0fdf4',
     accentBorder: '#bbf7d0',
   },
   {
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="#006CF7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#006CF7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#006CF7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
-    headline: 'ROI You Can Measure',
-    body: 'We baseline where you are today and track productivity gains, support ticket reduction, and licence utilisation — so you can prove the business case internally.',
-    proof: '40% avg. IT support ticket reduction',
+    headline: 'Enterprise Quality, Efficient Delivery',
+    body: 'Our India-based delivery model means senior D365 expertise at a fraction of the cost of legacy SI firms, without compromising on quality, governance, or accountability.',
+    proof: '30–40% cost advantage vs. big-4 SI partners',
     accent: '#fffbeb',
     accentBorder: '#fde68a',
   },
@@ -51,8 +50,8 @@ const outcomes = [
         <path d="M9 12l2 2 4-4" stroke="#006CF7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
-    headline: 'Microsoft Expertise, Human Approach',
-    body: 'Certified specialists who speak plain English, stay accountable after go-live, and treat your organisation\'s data and people with care.',
+    headline: 'Clients Stay Because We Deliver',
+    body: 'We don\'t go live and disappear. A named consultant who knows your business stays with you post-launch, for support, optimisation, and whatever comes next.',
     proof: '98% client retention across all engagements',
     accent: '#fdf4ff',
     accentBorder: '#e9d5ff',
@@ -72,7 +71,7 @@ export function OutcomesGrid() {
             className="mt-5 font-display font-extrabold text-slate-900"
             style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1, letterSpacing: '-0.025em' }}
           >
-            What Changes When You
+            What Sets Us Apart
             <span
               className="block"
               style={{
@@ -82,12 +81,12 @@ export function OutcomesGrid() {
                 backgroundClip: 'text',
               }}
             >
-              Work With Us
+              From Every Other Partner
             </span>
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate-500">
-            We don&apos;t just turn on Microsoft 365. We transform how your organisation
-            works — and prove it with data.
+            18 years. 200+ go-lives. Three continents. We bring a depth of ERP experience
+            that most European partners simply have not had the time to build.
           </p>
         </div>
 

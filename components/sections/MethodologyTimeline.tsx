@@ -9,7 +9,7 @@ const steps = [
     number: '01',
     title: 'Discover',
     subtitle: 'Understand Your Starting Point',
-    body: 'We audit your current environment, interview key stakeholders, and map your goals against your Microsoft 365 maturity. No assumptions — only facts.',
+    body: 'We audit your current environment, interview key stakeholders, and map your goals against your Microsoft 365 maturity. No assumptions. Only facts.',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
         <circle cx="11" cy="11" r="8" stroke="white" strokeWidth="2" />
@@ -22,7 +22,7 @@ const steps = [
     number: '02',
     title: 'Design',
     subtitle: 'Architect the Right Solution',
-    body: 'Our certified architects design a solution tailored to your organisation — not a template. We document every decision and get your sign-off before a single line of config.',
+    body: 'Our certified architects design a solution tailored to your organisation, not a template. We document every decision and get your sign-off before a single line of config.',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
         <path d="M2 20h.01M7 20v-4M12 20v-8M17 20V8M22 4 12 14.01l-4-4L2 16" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -165,7 +165,7 @@ export function MethodologyTimeline() {
                     className="mb-1 font-display text-xs font-bold uppercase tracking-widest"
                     style={{ color: '#6eaaff' }}
                   >
-                    {step.number} — {step.title}
+                    {step.number}: {step.title}
                   </p>
                   <h3 className="mb-3 font-display text-base font-bold text-white leading-snug">
                     {step.subtitle}

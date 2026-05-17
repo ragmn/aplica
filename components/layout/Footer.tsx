@@ -84,21 +84,22 @@ export function Footer() {
 
             {/* Newsletter */}
             <div className="mt-6">
-              <p className="mb-2 text-xs font-semibold text-slate-700">Monthly M365 insights</p>
-              <div className="flex overflow-hidden rounded-full border border-slate-200">
+              <p className="mb-1.5 text-xs font-semibold text-slate-700">Monthly ERP insights</p>
+              <p className="mb-3 text-xs text-slate-400">No spam. Unsubscribe any time.</p>
+              <div className="flex flex-col gap-2">
                 <input
                   type="email"
                   placeholder="your@email.com"
-                  className="flex-1 bg-transparent px-3.5 py-2 text-xs text-slate-700 outline-none placeholder:text-slate-400"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-3.5 py-2.5 text-xs text-slate-700 outline-none transition-colors placeholder:text-slate-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
                   aria-label="Email for newsletter"
                 />
                 <button
-                  className="shrink-0 rounded-full px-4 py-2 text-xs font-bold text-white"
+                  className="w-full rounded-lg py-2.5 text-xs font-bold text-white transition-opacity hover:opacity-90"
                   style={{ background: '#006CF7' }}
                   type="button"
                   aria-label="Subscribe to newsletter"
                 >
-                  Join
+                  Join the newsletter
                 </button>
               </div>
             </div>

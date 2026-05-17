@@ -38,7 +38,7 @@ export function TrustBar() {
 
         {/* Headline */}
         <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-          Trusted by organisations across the UK, UAE &amp; Europe
+          18 years of ERP delivery. Trusted across India, the GCC and now Europe
         </p>
 
         {/* Partner badges */}

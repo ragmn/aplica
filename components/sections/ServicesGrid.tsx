@@ -7,121 +7,122 @@ import { ArrowRight, Check, Star } from 'lucide-react'
 
 const serviceGroups = [
   {
-    id: 'strategy',
-    label: 'Strategy & Assessment',
-    icon: '🔍',
+    id: 'erp',
+    label: 'ERP Implementation',
+    icon: '⚙',
     services: [
       {
-        name: 'Discovery Workshop',
-        valueProp: 'Align your team and define a clear Microsoft 365 roadmap',
-        bullets: ['Current-state audit', 'Stakeholder alignment session', 'Prioritised 90-day roadmap'],
-        href: '/solutions#discovery',
-      },
-      {
-        name: 'M365 Readiness Assessment',
-        valueProp: 'Know exactly where you stand before you spend a pound',
-        bullets: ['Licence utilisation review', 'Security posture check', 'Adoption gap analysis'],
-        href: '/solutions#readiness',
-        badge: 'Free Starter',
-      },
-    ],
-  },
-  {
-    id: 'deployment',
-    label: 'Deployment & Migration',
-    icon: '🚀',
-    services: [
-      {
-        name: 'M365 Tenant Setup & Migration',
-        valueProp: 'Move to Microsoft 365 with zero downtime and full data integrity',
-        bullets: ['Tenant design & provisioning', 'Email & data migration', 'Security baseline configuration'],
-        href: '/solutions#deployment',
+        name: 'D365 Business Central',
+        valueProp: 'Full ERP on Microsoft\'s modern cloud platform for SMB and mid-market',
+        bullets: ['Chart of accounts & financial setup', 'Inventory, purchasing & sales', 'Multi-entity & multi-currency'],
+        href: '/solutions#business-central',
         badge: 'Most Popular',
       },
       {
-        name: 'SharePoint & Teams Configuration',
-        valueProp: 'Intranet and collaboration environments your people actually use',
-        bullets: ['Information architecture design', 'Teams governance framework', 'Permission and access controls'],
-        href: '/solutions#sharepoint-teams',
+        name: 'D365 Finance & Operations',
+        valueProp: 'Enterprise-grade ERP for complex, multi-site organisations',
+        bullets: ['General ledger & consolidations', 'Manufacturing & supply chain', 'Project management & accounting'],
+        href: '/solutions#finance-ops',
+        badge: 'Enterprise',
       },
     ],
   },
   {
-    id: 'automation',
-    label: 'Automation & Integration',
-    icon: '⚡',
+    id: 'crm',
+    label: 'CRM & Sales',
+    icon: '◈',
     services: [
       {
-        name: 'Power Platform',
-        valueProp: 'Automate manual processes and build apps without custom code',
-        bullets: ['Power Automate workflows', 'Power Apps for internal tools', 'Power BI reporting dashboards'],
-        href: '/solutions#power-platform',
+        name: 'D365 Sales & Customer Engagement',
+        valueProp: 'Connect your sales process to back-office ERP from day one',
+        bullets: ['Opportunity & pipeline management', 'Customer 360 view', 'Native D365 ERP integration'],
+        href: '/solutions#crm',
+      },
+      {
+        name: 'D365 Field Service',
+        valueProp: 'Optimise field operations and service delivery at scale',
+        bullets: ['Work order management', 'Intelligent resource scheduling', 'Mobile-first technician experience'],
+        href: '/solutions#field-service',
+      },
+    ],
+  },
+  {
+    id: 'assessment',
+    label: 'Assessment & Roadmap',
+    icon: '▣',
+    services: [
+      {
+        name: 'ERP Readiness Assessment',
+        valueProp: 'Understand your gaps and build a credible business case before committing budget',
+        bullets: ['Current-state process mapping', 'Data quality & migration audit', 'ROI model & investment estimate'],
+        href: '/solutions#readiness',
+        badge: 'Free Starter',
+      },
+      {
+        name: 'Discovery Workshop',
+        valueProp: 'A structured 2-day session to align stakeholders and define the right scope',
+        bullets: ['Requirements & process capture', 'Re-engineering opportunities', 'Go-live timeline & phasing'],
+        href: '/solutions#discovery',
+      },
+    ],
+  },
+  {
+    id: 'migration',
+    label: 'Migration & Upgrade',
+    icon: '↑',
+    services: [
+      {
+        name: 'Legacy ERP to D365',
+        valueProp: 'Move from SAP, Oracle, Sage or NAV to modern Dynamics 365',
+        bullets: ['Data migration & cleansing', 'Custom development carry-over assessment', 'Parallel-run cutover strategy'],
+        href: '/solutions#migration',
+        badge: 'High Demand',
+      },
+      {
+        name: 'Dynamics NAV / BC Upgrade',
+        valueProp: 'Upgrade older Dynamics versions to the latest Business Central SaaS',
+        bullets: ['Version gap analysis', 'ISV & extension compatibility review', 'Safe incremental upgrade approach'],
+        href: '/solutions#upgrade',
+      },
+    ],
+  },
+  {
+    id: 'integration',
+    label: 'Integration & BI',
+    icon: '⬡',
+    services: [
+      {
+        name: 'System Integration',
+        valueProp: 'Connect D365 to your existing systems without breaking anything',
+        bullets: ['REST API & middleware design', 'E-commerce & logistics connectors', 'Real-time data synchronisation'],
+        href: '/solutions#integration',
+      },
+      {
+        name: 'Power BI & Analytics',
+        valueProp: 'Turn your ERP data into decisions your leadership team will actually use',
+        bullets: ['Financial dashboards & KPI packs', 'Supply chain & operations reporting', 'Self-service BI enablement'],
+        href: '/solutions#powerbi',
         badge: 'High ROI',
-      },
-      {
-        name: 'Azure Infrastructure & Cloud',
-        valueProp: 'Enterprise-grade cloud infrastructure, architected for growth',
-        bullets: ['Azure landing zone design', 'Hybrid identity (Entra ID)', 'Cost optimisation & governance'],
-        href: '/solutions#azure-devops',
-      },
-    ],
-  },
-  {
-    id: 'ai',
-    label: 'AI & Copilot',
-    icon: '🤖',
-    services: [
-      {
-        name: 'Microsoft Copilot Adoption',
-        valueProp: 'Turn Copilot licences into measurable productivity gains',
-        bullets: ['Copilot readiness assessment', 'Use-case prioritisation by role', 'Champions programme & training'],
-        href: '/solutions#copilot-d365',
-        badge: '🔥 Hot',
-      },
-      {
-        name: 'AI Consulting & Strategy',
-        valueProp: 'Build a responsible AI roadmap grounded in your business goals',
-        bullets: ['AI readiness scoring', 'Azure OpenAI integration', 'Governance & compliance framework'],
-        href: '/solutions#ai-consulting',
-      },
-    ],
-  },
-  {
-    id: 'training',
-    label: 'Training & Adoption',
-    icon: '📚',
-    services: [
-      {
-        name: 'End-User Training',
-        valueProp: 'Role-based training that drives lasting behaviour change',
-        bullets: ['Live and recorded sessions', 'Role-specific learning paths', 'Adoption metrics and tracking'],
-        href: '/solutions#training',
-      },
-      {
-        name: 'Champions Programme',
-        valueProp: 'Build internal advocates who sustain adoption long-term',
-        bullets: ['Champion selection & onboarding', 'Monthly community calls', 'Resource library & toolkits'],
-        href: '/solutions#champions',
       },
     ],
   },
   {
     id: 'support',
     label: 'Managed Support',
-    icon: '🛡️',
+    icon: '◉',
     services: [
       {
-        name: 'Managed M365 Helpdesk',
-        valueProp: 'UK-based support that resolves issues before they cost you',
-        bullets: ['Tiered helpdesk (L1–L3)', 'Proactive monitoring & alerts', 'Monthly health reports'],
+        name: 'Post Go-Live Support',
+        valueProp: 'A named consultant who knows your system, not a faceless helpdesk',
+        bullets: ['Tiered helpdesk (L1–L3)', 'Monthly health checks & proactive alerts', 'Enhancement request management'],
         href: '/solutions#support',
         badge: 'Ongoing',
       },
       {
-        name: 'Governance & Licence Management',
-        valueProp: 'Stay compliant, cut waste, and keep your environment healthy',
-        bullets: ['Licence optimisation reviews', 'Governance policy templates', 'Security & compliance audits'],
-        href: '/solutions#governance',
+        name: 'Managed D365 Administration',
+        valueProp: 'We run your D365 environment so your team can focus on the business',
+        bullets: ['Release wave management', 'User & licence administration', 'Performance & compliance monitoring'],
+        href: '/solutions#managed',
       },
     ],
   },
@@ -144,11 +145,11 @@ export function ServicesGrid() {
               className="mt-5 font-display font-extrabold text-slate-900"
               style={{ fontSize: 'clamp(1.875rem, 3.5vw, 2.75rem)', lineHeight: 1.1, letterSpacing: '-0.025em' }}
             >
-              We meet you where you are.
+              Every stage of your D365 journey, covered.
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-500">
-              Whether you&apos;re starting from scratch, fixing a failed deployment, or ready to unlock AI —
-              our six service areas cover every stage of the journey.
+              Whether you are implementing ERP for the first time, migrating from a legacy system,
+              or optimising an existing Dynamics environment. We have done it before.
             </p>
           </div>
           <Link
@@ -254,10 +255,10 @@ export function ServicesGrid() {
         {/* Bottom trust row */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
           {[
-            'Fixed-scope engagements',
-            'Certified Microsoft CSP',
+            '18 years ERP experience',
+            'Certified Microsoft D365 CSP',
             '200+ go-lives delivered',
-            'UK & EU time zones',
+            'India, GCC & Europe delivery',
           ].map((t) => (
             <div key={t} className="flex items-center gap-2">
               <Check size={13} style={{ color: '#006CF7' }} aria-hidden />

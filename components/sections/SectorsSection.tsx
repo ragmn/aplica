@@ -135,7 +135,7 @@ export function SectorsSection() {
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate-500">
             We understand the specific regulatory, operational, and cultural challenges of each
-            sector — so our solutions actually fit.
+            sector, so our solutions actually fit.
           </p>
         </div>
 

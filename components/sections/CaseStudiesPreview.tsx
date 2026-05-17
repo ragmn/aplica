@@ -121,7 +121,7 @@ export function CaseStudiesPreview() {
                       &ldquo;{cs.testimonial.quote}&rdquo;
                     </p>
                     <footer className="mt-2 text-xs font-semibold text-slate-500">
-                      — {cs.testimonial.author}, {cs.testimonial.role}
+                      {cs.testimonial.author}, {cs.testimonial.role}
                     </footer>
                   </blockquote>
                 )}
