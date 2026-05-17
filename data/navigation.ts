@@ -1,7 +1,15 @@
 import { NavItem } from '@/types'
 
 export const navigation: NavItem[] = [
-  { label: 'Why Us', href: '/about' },
+  {
+    label: 'About',
+    href: '/about',
+    children: [
+      { label: 'Who We Are', href: '/about' },
+      { label: 'Our Offices', href: '/about#offices' },
+      { label: 'Careers and Open Roles', href: '/hire' },
+    ],
+  },
   {
     label: 'Services',
     href: '/solutions',
@@ -23,17 +31,6 @@ export const navigation: NavItem[] = [
       { label: 'D365 Implementation (ERP/CRM)', href: '/solutions#implementation' },
       { label: 'Finance & Operations', href: '/solutions#finance-operations' },
       { label: 'Supply Chain Management', href: '/solutions#supply-chain' },
-    ],
-  },
-  {
-    label: 'Solutions',
-    href: '/solutions',
-    children: [
-      { label: 'Empower Your Workforce', href: '/solutions#workforce' },
-      { label: 'Automate Business Processes', href: '/solutions#automation' },
-      { label: 'Secure Your Data', href: '/solutions#security' },
-      { label: 'Migrate to the Cloud', href: '/solutions#cloud-migration' },
-      { label: 'Adopt AI & Copilot', href: '/solutions#ai-copilot' },
     ],
   },
   {

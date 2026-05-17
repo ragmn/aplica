@@ -9,7 +9,8 @@
       "Bash(python3 -c \"import docx; print\\('ok'\\)\")",
       "Bash(python3 -c \"import docx; doc=docx.Document\\('/Users/a1201/ragmn-workspace/aplica/docs/Bank Integration..docx'\\); print\\('\\\\n'.join\\([p.text for p in doc.paragraphs]\\)\\)\")",
       "Bash(python3 -c \"import docx; doc=docx.Document\\('/Users/a1201/ragmn-workspace/aplica/docs/Case Study on Service Module for GNE.docx'\\); print\\('\\\\n'.join\\([p.text for p in doc.paragraphs]\\)\\)\")",
-      "Bash(python3 -c \"import docx; doc=docx.Document\\('/Users/a1201/ragmn-workspace/aplica/docs/Case Study_BankIntegration_Bhadrajeet.docx'\\); print\\('\\\\n'.join\\([p.text for p in doc.paragraphs]\\)\\)\")"
+      "Bash(python3 -c \"import docx; doc=docx.Document\\('/Users/a1201/ragmn-workspace/aplica/docs/Case Study_BankIntegration_Bhadrajeet.docx'\\); print\\('\\\\n'.join\\([p.text for p in doc.paragraphs]\\)\\)\")",
+      "WebFetch(domain:aplicatech.com)"
     ]
   }
 }

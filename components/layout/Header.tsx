@@ -188,7 +188,6 @@ function NavLink({
   }
 
   const isMegaMenu = item.label === 'Services'
-  const isOutcomesMenu = item.label === 'Solutions'
 
   return (
     <li
@@ -220,7 +219,7 @@ function NavLink({
             transition={{ duration: 0.16, ease: 'easeOut' }}
             className={cn(
               'absolute left-0 top-full mt-2 rounded-2xl bg-white shadow-xl',
-              isMegaMenu ? 'w-[560px]' : isOutcomesMenu ? 'w-72' : 'w-60'
+              isMegaMenu ? 'w-[560px]' : 'w-60'
             )}
             style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06)', border: '1px solid rgba(0,0,0,0.07)' }}
             role="menu"
@@ -235,6 +234,7 @@ function NavLink({
                     <Link
                       key={child.href}
                       href={child.href}
+                      onClick={() => setActiveDropdown(null)}
                       className="group flex items-center justify-between rounded-lg px-3 py-2.5 transition-colors hover:bg-slate-50"
                       role="menuitem"
                     >
@@ -251,6 +251,7 @@ function NavLink({
                 <div className="mt-1 border-t border-slate-100 px-3 pt-3 pb-2">
                   <Link
                     href="/contact#book"
+                    onClick={() => setActiveDropdown(null)}
                     className="flex items-center gap-2 text-xs font-semibold text-cta hover:underline"
                     data-cta="nav-book-call"
                   >
@@ -259,34 +260,13 @@ function NavLink({
                   </Link>
                 </div>
               </div>
-            ) : isOutcomesMenu ? (
-              <div className="p-2">
-                <p className="px-3 pb-2 pt-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                  Outcomes
-                </p>
-                {item.children.map((child) => (
-                  <Link
-                    key={child.href}
-                    href={child.href}
-                    className="group flex items-center justify-between rounded-lg px-3 py-2.5 transition-colors hover:bg-slate-50"
-                    role="menuitem"
-                  >
-                    <span className="text-sm font-medium text-slate-600 transition-colors group-hover:text-slate-900">
-                      {child.label}
-                    </span>
-                    <ArrowRight
-                      size={11}
-                      className="shrink-0 text-slate-300 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0"
-                    />
-                  </Link>
-                ))}
-              </div>
             ) : (
               <div className="p-2">
                 {item.children.map((child) => (
                   <Link
                     key={child.href}
                     href={child.href}
+                    onClick={() => setActiveDropdown(null)}
                     className="block rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 hover:text-slate-900"
                     role="menuitem"
                   >

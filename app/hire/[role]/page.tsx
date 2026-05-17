@@ -190,25 +190,30 @@ export default async function HireRolePage({ params }: { params: Promise<{ role:
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-slate-950 pt-32 pb-20">
-        <div className="pointer-events-none absolute inset-0 bg-hero-glow opacity-30" />
+      <section
+        className="relative overflow-hidden pt-24 pb-20"
+        style={{ background: 'linear-gradient(145deg, #f0f7ff 0%, #fafcff 55%, #f5f0ff 100%)' }}
+      >
+        <div
+          className="pointer-events-none absolute -left-24 -top-24 h-96 w-96 rounded-full opacity-30"
+          style={{ background: 'radial-gradient(circle, rgba(0,108,247,0.15) 0%, transparent 70%)' }}
+          aria-hidden
+        />
         <div className="container-xl relative max-w-3xl">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-300">{data.subtitle}</p>
-          <h1 className="font-display text-display-xl text-white">{data.heroHeadline}</h1>
-          <p className="mt-6 text-lg text-slate-400 leading-relaxed">{data.description}</p>
+          <span className="eyebrow mb-5">{data.subtitle}</span>
+          <h1
+            className="mt-5 font-display font-extrabold text-slate-900"
+            style={{ fontSize: 'clamp(2.25rem, 5vw, 3.75rem)', lineHeight: 1.05, letterSpacing: '-0.03em' }}
+          >
+            {data.heroHeadline}
+          </h1>
+          <p className="mt-6 text-lg leading-relaxed text-slate-500">{data.description}</p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Link
-              href="/contact#hire"
-              className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110"
-              style={{ background: 'linear-gradient(135deg, #6eaaff 0%, #006CF7 100%)', boxShadow: '0 4px 20px rgba(0,108,247,0.30)' }}
-            >
+            <Link href="/contact#hire" className="btn-primary">
               Request a shortlist
-              <ArrowRight size={14} />
+              <ArrowRight size={14} aria-hidden />
             </Link>
-            <Link
-              href="/hire"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-slate-300 transition-all hover:border-white/40 hover:text-white"
-            >
+            <Link href="/hire" className="btn-ghost">
               View all roles
             </Link>
           </div>
@@ -216,7 +221,7 @@ export default async function HireRolePage({ params }: { params: Promise<{ role:
       </section>
 
       {/* Trust badges */}
-      <section className="border-y border-white/5 bg-slate-900 py-8">
+      <section className="border-y border-slate-100 bg-white py-8">
         <div className="container-xl">
           <div className="flex flex-wrap justify-center gap-8">
             {[
@@ -224,8 +229,8 @@ export default async function HireRolePage({ params }: { params: Promise<{ role:
               { icon: Award, text: 'Verified certifications' },
               { icon: Users, text: 'Dedicated, not shared resources' },
             ].map(({ icon: Icon, text }) => (
-              <div key={text} className="flex items-center gap-2 text-sm text-slate-400">
-                <Icon size={15} className="text-brand-400" />
+              <div key={text} className="flex items-center gap-2 text-sm text-slate-600">
+                <Icon size={15} style={{ color: '#006CF7' }} aria-hidden />
                 {text}
               </div>
             ))}
@@ -234,26 +239,36 @@ export default async function HireRolePage({ params }: { params: Promise<{ role:
       </section>
 
       {/* Skills + Deliverables */}
-      <section className="section-padding bg-slate-950">
+      <section className="section-padding" style={{ background: '#f8faff' }}>
         <div className="container-xl grid gap-12 lg:grid-cols-2">
           <div>
-            <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-brand-300">Technical skills</p>
-            <ul className="space-y-3">
+            <span className="eyebrow mb-4">Technical Skills</span>
+            <ul className="mt-4 space-y-3">
               {data.skills.map((s) => (
-                <li key={s} className="flex items-start gap-3 text-sm text-slate-300">
-                  <CheckCircle size={15} className="mt-0.5 shrink-0 text-brand-400" />
-                  {s}
+                <li key={s} className="flex items-start gap-3">
+                  <div
+                    className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
+                    style={{ background: '#eff6ff' }}
+                  >
+                    <CheckCircle size={11} style={{ color: '#006CF7' }} aria-hidden />
+                  </div>
+                  <span className="text-sm text-slate-600">{s}</span>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-brand-300">What they deliver</p>
-            <ul className="space-y-3">
+            <span className="eyebrow mb-4">What They Deliver</span>
+            <ul className="mt-4 space-y-3">
               {data.deliverables.map((d) => (
-                <li key={d} className="flex items-start gap-3 text-sm text-slate-300">
-                  <CheckCircle size={15} className="mt-0.5 shrink-0 text-brand-400" />
-                  {d}
+                <li key={d} className="flex items-start gap-3">
+                  <div
+                    className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
+                    style={{ background: '#eff6ff' }}
+                  >
+                    <CheckCircle size={11} style={{ color: '#006CF7' }} aria-hidden />
+                  </div>
+                  <span className="text-sm text-slate-600">{d}</span>
                 </li>
               ))}
             </ul>
@@ -262,39 +277,54 @@ export default async function HireRolePage({ params }: { params: Promise<{ role:
       </section>
 
       {/* Seniority / rates */}
-      <section className="section-padding bg-slate-900">
+      <section className="section-padding bg-white">
         <div className="container-xl">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand-300">Engagement options</p>
-          <h2 className="mb-10 font-display text-display-sm text-white">Transparent indicative rates</h2>
+          <span className="eyebrow mb-4">Engagement Options</span>
+          <h2
+            className="mt-4 mb-10 font-display font-extrabold text-slate-900"
+            style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', lineHeight: 1.1, letterSpacing: '-0.025em' }}
+          >
+            Transparent indicative rates
+          </h2>
           <div className="grid gap-5 sm:grid-cols-3">
             {data.seniority.map((s) => (
               <div
                 key={s.level}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
+                className="rounded-2xl p-6"
+                style={{ background: '#f8faff', boxShadow: 'inset 0 0 0 1px rgba(0,108,247,0.10)' }}
               >
                 <div className="mb-3 h-1 w-8 rounded-full" style={{ backgroundColor: data.color }} />
-                <h3 className="mb-1 text-sm font-semibold text-white">{s.level}</h3>
-                <p className="mb-4 text-xs text-slate-500">{s.yoe} experience</p>
-                <p className="text-lg font-bold text-white">{s.rate}</p>
+                <h3 className="mb-1 text-sm font-bold text-slate-900">{s.level}</h3>
+                <p className="mb-4 text-xs text-slate-400">{s.yoe} experience</p>
+                <p className="text-lg font-bold text-slate-900">{s.rate}</p>
               </div>
             ))}
           </div>
-          <p className="mt-6 text-xs text-slate-500">
+          <p className="mt-6 text-xs text-slate-400">
             Rates are indicative. Final pricing depends on seniority, engagement duration, and timezone requirements. All rates exclude VAT where applicable.
           </p>
         </div>
       </section>
 
       {/* FAQs */}
-      <section className="section-padding bg-slate-950">
+      <section className="section-padding" style={{ background: '#f8faff' }}>
         <div className="container-xl max-w-2xl">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand-300">FAQs</p>
-          <h2 className="mb-10 font-display text-display-sm text-white">Common questions</h2>
-          <div className="space-y-6">
+          <span className="eyebrow mb-4">FAQs</span>
+          <h2
+            className="mt-4 mb-10 font-display font-extrabold text-slate-900"
+            style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', lineHeight: 1.1, letterSpacing: '-0.025em' }}
+          >
+            Common questions
+          </h2>
+          <div className="space-y-4">
             {data.faqs.map((f) => (
-              <div key={f.q} className="rounded-xl border border-white/10 bg-white/[0.03] p-5">
-                <h3 className="mb-2 text-sm font-semibold text-white">{f.q}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">{f.a}</p>
+              <div
+                key={f.q}
+                className="rounded-2xl bg-white p-5"
+                style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06)' }}
+              >
+                <h3 className="mb-2 text-sm font-bold text-slate-900">{f.q}</h3>
+                <p className="text-sm leading-relaxed text-slate-500">{f.a}</p>
               </div>
             ))}
           </div>
@@ -302,19 +332,20 @@ export default async function HireRolePage({ params }: { params: Promise<{ role:
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-slate-900">
-        <div className="container-xl max-w-2xl text-center">
-          <h2 className="font-display text-display-md text-white">Ready to hire a {data.title.replace('Hire ', '')}?</h2>
-          <p className="mt-4 text-slate-400">
+      <section className="section-padding bg-white text-center">
+        <div className="container-xl max-w-2xl">
+          <h2
+            className="font-display font-extrabold text-slate-900"
+            style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', lineHeight: 1.1, letterSpacing: '-0.025em' }}
+          >
+            Ready to hire a {data.title.replace('Hire ', '')}?
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-slate-500">
             Share your brief and our talent delivery team will come back with a matched shortlist within 48 hours.
           </p>
-          <Link
-            href="/contact#hire"
-            className="mt-8 inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold text-white transition-all hover:brightness-110"
-            style={{ background: 'linear-gradient(135deg, #6eaaff 0%, #006CF7 100%)', boxShadow: '0 4px 20px rgba(0,108,247,0.30)' }}
-          >
+          <Link href="/contact#hire" className="btn-primary mt-8 inline-flex">
             Request a shortlist
-            <ArrowRight size={14} />
+            <ArrowRight size={14} aria-hidden />
           </Link>
         </div>
       </section>

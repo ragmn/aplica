@@ -9,7 +9,7 @@ import { breadcrumbSchema } from '@/lib/schema'
 export const metadata: Metadata = {
   title: 'Case Studies — Dynamics 365 Implementation Results',
   description:
-    'Explore real-world Microsoft Dynamics 365 implementations delivered by Aplica across construction, property, distribution, and more. UK, Europe, UAE & India clients.',
+    'Real-world Microsoft Dynamics 365 implementations delivered by Aplica across manufacturing, food and beverage, renewable energy, real estate, hospitality, and construction. India, GCC and UK clients.',
   alternates: { canonical: 'https://aplicatech.com/case-studies' },
 }
 
@@ -19,23 +19,31 @@ export default function CaseStudiesPage() {
       <JsonLd data={breadcrumbSchema([{ name: 'Home', href: '/' }, { name: 'Case Studies', href: '/case-studies' }])} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-slate-950 pt-32 pb-20">
-        <div className="pointer-events-none absolute inset-0 bg-hero-glow opacity-30" />
+      <section
+        className="relative overflow-hidden pt-24 pb-20"
+        style={{ background: 'linear-gradient(145deg, #f0f7ff 0%, #fafcff 55%, #f5f0ff 100%)' }}
+      >
+        <div
+          className="pointer-events-none absolute -left-24 -top-24 h-96 w-96 rounded-full opacity-30"
+          style={{ background: 'radial-gradient(circle, rgba(0,108,247,0.15) 0%, transparent 70%)' }}
+          aria-hidden
+        />
         <div className="container-xl relative text-center">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-300">
-            Case Studies
-          </p>
-          <h1 className="font-display text-display-xl text-white">
+          <span className="eyebrow mb-5">Case Studies</span>
+          <h1
+            className="mt-5 font-display font-extrabold text-slate-900"
+            style={{ fontSize: 'clamp(2.25rem, 5vw, 3.75rem)', lineHeight: 1.05, letterSpacing: '-0.03em' }}
+          >
             Proof in practice.
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-slate-400">
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-500">
             200+ implementations delivered. Here are the stories behind the numbers.
           </p>
         </div>
       </section>
 
       {/* Grid */}
-      <section className="section-padding bg-slate-950">
+      <section className="section-padding bg-white">
         <div className="container-xl">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {caseStudies.map((cs, i) => (
@@ -46,15 +54,18 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-slate-900 text-center">
+      <section className="section-padding text-center" style={{ background: '#f8faff' }}>
         <div className="container-xl">
-          <h2 className="font-display text-display-md text-white">Ready to be our next success story?</h2>
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-brand-600 px-7 py-4 text-sm font-semibold text-white hover:bg-brand-500 transition-colors"
+          <span className="eyebrow mb-4">Get Started</span>
+          <h2
+            className="mt-4 font-display font-extrabold text-slate-900"
+            style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', lineHeight: 1.1, letterSpacing: '-0.025em' }}
           >
+            Ready to be our next success story?
+          </h2>
+          <Link href="/contact" className="btn-primary mt-8 inline-flex">
             Start your implementation
-            <ArrowRight size={14} />
+            <ArrowRight size={14} aria-hidden />
           </Link>
         </div>
       </section>

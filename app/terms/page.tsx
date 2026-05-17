@@ -8,10 +8,10 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <main className="min-h-screen pt-32 pb-24" style={{ backgroundColor: '#131313' }}>
+    <main className="min-h-screen pt-32 pb-24 bg-white">
       <div className="container-xl max-w-3xl">
         <p className="eyebrow mb-4">Legal</p>
-        <h1 className="font-display text-4xl font-bold text-white mb-3">Terms of Service</h1>
+        <h1 className="font-display text-4xl font-bold text-slate-900 mb-3">Terms of Service</h1>
         <p className="text-slate-400 text-sm mb-12">Last updated: 1 January 2025</p>
 
         <div className="prose-legal">

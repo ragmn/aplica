@@ -255,17 +255,8 @@
 
   /* Section eyebrow label */
   .eyebrow {
-    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest;
+    @apply inline-flex items-center text-xs font-bold uppercase tracking-widest;
     color: #006CF7;
-  }
-  .eyebrow::before {
-    content: '';
-    display: inline-block;
-    width: 1.25rem;
-    height: 2px;
-    background: #006CF7;
-    border-radius: 9999px;
-    flex-shrink: 0;
   }
 
   /* Step badge */

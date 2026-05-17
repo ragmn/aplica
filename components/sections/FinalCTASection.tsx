@@ -41,8 +41,7 @@ export function FinalCTASection() {
 
           {/* Left: copy */}
           <div>
-            <span className="mb-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-400">
-              <span className="inline-block h-px w-5 bg-blue-400" />
+            <span className="mb-6 inline-flex items-center text-xs font-bold uppercase tracking-widest text-blue-400">
               Get Started
             </span>
             <h2

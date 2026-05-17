@@ -1,141 +1,243 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, MapPin, Briefcase, Check } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Hire Dedicated Engineers — ERP, DevOps, AI & Full-Stack | Aplica Technology',
+  title: 'Careers at Aplica — Open Positions | D365 Consultants, Technical Roles and Sales',
   description:
-    'Hire pre-vetted, Microsoft-certified engineers on flexible engagement models. ERP consultants, DevOps engineers, frontend & backend developers, and AI specialists available within 5 business days.',
+    'Join Aplica Technology. Open positions for Microsoft Dynamics 365 F&O functional and technical consultants, Business Central specialists, CRM consultants, and sales roles across Bangalore and Dubai.',
   alternates: { canonical: 'https://aplicatech.com/hire' },
 }
 
-const roles = [
+const openPositions = [
   {
-    slug: 'erp-engineers',
-    title: 'ERP Engineers',
-    subtitle: 'Microsoft Dynamics 365 Specialists',
-    description:
-      'Certified D365 architects, functional consultants, and AL/X++ developers for F&O, CE, and cross-module implementations.',
-    skills: ['D365 F&O', 'D365 CRM / CE', 'Power Platform', 'AL / X++', 'Azure DevOps'],
+    id: 'fo-roles',
+    category: 'D365 Finance and Operations',
     color: '#006CF7',
+    roles: [
+      {
+        title: 'F&O SCM Functional Consultant',
+        subtitle: 'SCM, Manufacturing, MRP, Landed Cost, ADWMS',
+        location: 'Bangalore (Hybrid)',
+        experience: '4 to 6 years',
+        description: 'Core SCM modules with deep knowledge in Manufacturing, MRP, Landed Cost, and Advanced Warehouse Management. Strong functional consulting skills including requirement gathering, UAT support, and client-facing delivery.',
+      },
+      {
+        title: 'F&O Functional Lead',
+        subtitle: 'Finance and SCM/PMA',
+        location: 'Bangalore (Hybrid)',
+        experience: '5 to 8 years',
+        description: 'End-to-end implementation leadership across Finance and SCM/PMA modules. Responsible for solution design, gap-fit analysis, team coordination, stakeholder management, and leading workshops independently.',
+      },
+      {
+        title: 'F&O Finance Functional Consultant',
+        subtitle: 'GL, AR, AP, Fixed Assets, Budgeting',
+        location: 'Bangalore (Hybrid)',
+        experience: '4 to 6 years',
+        description: 'Strong knowledge of Finance modules including GL, AR, AP, Bank, Fixed Assets, Budgeting, Financial Reporting and Taxation. Experience in requirement gathering, UAT, and client-facing engagements.',
+      },
+      {
+        title: 'F&O Technical Consultant',
+        subtitle: 'X++, SQL, Integrations, Customisations',
+        location: 'Bangalore (Hybrid)',
+        experience: '4 to 8 years',
+        description: 'Strong technical expertise in D365 F&O development including X++, SQL, integrations, extensions, data migration, LCS, and Azure DevOps. Ability to work independently with good client-handling skills.',
+      },
+      {
+        title: 'Pre-Sales Consultant / Lead',
+        subtitle: 'F&O, Client Presentations',
+        location: 'Bangalore (Hybrid)',
+        experience: '5+ years',
+        description: 'Work closely with sales teams to understand client requirements and present tailored D365 F&O solutions. Strong background in Finance and Operations required with excellent communication and presentation skills.',
+      },
+    ],
   },
   {
-    slug: 'devops-engineers',
-    title: 'DevOps Engineers',
-    subtitle: 'Microsoft Azure & Cloud Infrastructure',
-    description:
-      'Azure-certified engineers for CI/CD pipelines, infrastructure-as-code, container orchestration, and cloud migrations.',
-    skills: ['Azure DevOps', 'Terraform', 'Kubernetes', 'GitHub Actions', 'Azure Monitor'],
-    color: '#0078D4',
+    id: 'bc-roles',
+    category: 'Business Central',
+    color: '#059142',
+    roles: [
+      {
+        title: 'NAV / BC Functional Consultant',
+        subtitle: 'Finance modules, Client Facing',
+        location: 'Bangalore (Hybrid)',
+        experience: '4 to 7 years',
+        description: 'Core Finance and other BC modules. Strong client-facing skills with ability to handle client engagements independently. Good communication skills required.',
+      },
+      {
+        title: 'NAV / BC Technical Consultant',
+        subtitle: 'CAL / AL Coding, Integrations',
+        location: 'Bangalore (Hybrid)',
+        experience: '4 to 7 years',
+        description: 'CAL and AL coding expertise with integration skills and solid NAV/BC development experience. Ability to build and maintain custom extensions and third-party integrations.',
+      },
+    ],
   },
   {
-    slug: 'frontend-developers',
-    title: 'Frontend Developers',
-    subtitle: 'React, Next.js & Power Apps',
-    description:
-      'UI engineers who ship production-grade web applications — from React/Next.js portals to Power Apps canvas and model-driven interfaces.',
-    skills: ['React / Next.js', 'TypeScript', 'Power Apps', 'Tailwind CSS', 'Azure Static Web Apps'],
-    color: '#8B5CF6',
-  },
-  {
-    slug: 'backend-developers',
-    title: 'Backend Developers',
-    subtitle: '.NET, Node.js & Azure APIs',
-    description:
-      'Server-side engineers for REST/GraphQL API development, microservices architecture, and Azure service integrations.',
-    skills: ['.NET / C#', 'Node.js', 'Azure Functions', 'SQL Server', 'Azure Service Bus'],
-    color: '#10B981',
-  },
-  {
-    slug: 'ai-engineers',
-    title: 'AI Engineers',
-    subtitle: 'Azure AI, Copilot & LLM Specialists',
-    description:
-      'AI practitioners who build production-ready Copilot extensions, RAG pipelines, and Azure AI-powered automations within your existing Dynamics 365 estate.',
-    skills: ['Azure OpenAI', 'Copilot Studio', 'Semantic Kernel', 'Azure AI Search', 'Python / LangChain'],
+    id: 'dubai-roles',
+    category: 'Dubai Opportunities',
     color: '#F59E0B',
+    roles: [
+      {
+        title: 'Sales Manager, Dynamics 365',
+        subtitle: 'ERP Sales, UAE and GCC',
+        location: 'Dubai, UAE',
+        experience: '5 to 15 years',
+        description: 'Strong experience in ERP sales, specifically Dynamics 365. Proven track record in revenue generation, lead generation and client acquisition, solution positioning, and contract negotiation. Must have deep understanding of the UAE/GCC market.',
+      },
+      {
+        title: 'D365 CRM Techno-Functional Consultant',
+        subtitle: 'Sales, Customer Service, Field Service',
+        location: 'Dubai, UAE',
+        experience: '5 to 8 years',
+        description: 'Configure and customise D365 CRM modules including Sales, Customer Service, and Field Service. Salary: AED 18,000 per month plus insurance and annual leave. UAE-based client-facing role.',
+      },
+      {
+        title: 'F&O Techno-Functional Consultant',
+        subtitle: 'Finance and Supply Chain',
+        location: 'Dubai, UAE',
+        experience: '5 to 8 years UAE experience',
+        description: 'Proven expertise in Finance and Operations solutions with familiarity across Finance and Supply Chain domains. Salary: AED 18,000 per month plus insurance and annual leave.',
+      },
+    ],
   },
 ]
 
-const process = [
-  { step: '01', title: 'Share your brief', body: 'Tell us the role, stack, seniority level, and engagement model. Takes less than 5 minutes.' },
-  { step: '02', title: 'We shortlist within 48 h', body: 'Our talent delivery team matches your brief against our certified resource pool and external partner network.' },
-  { step: '03', title: 'Interview & select', body: 'You interview 2–3 shortlisted candidates. No placement fees — you only pay the agreed monthly rate.' },
-  { step: '04', title: 'Onboard in 5 days', body: 'Contracts, NDAs, and access provisioning handled by us. Your engineer is ready to contribute from day one.' },
+const perks = [
+  'Fully remote and hybrid working options',
+  'Microsoft certification support and study leave',
+  'Exposure to international client projects (India, GCC, Europe)',
+  'Fast career progression in a growing ERP consultancy',
+  'Collaborative, senior-led delivery environment',
+  'Competitive salary benchmarked to market rates',
 ]
 
 export default function HirePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-slate-950 pt-32 pb-20">
-        <div className="pointer-events-none absolute inset-0 bg-hero-glow opacity-30" />
+      <section
+        className="relative overflow-hidden pt-24 pb-20"
+        style={{ background: 'linear-gradient(145deg, #f0f7ff 0%, #fafcff 55%, #f5f0ff 100%)' }}
+      >
+        <div
+          className="pointer-events-none absolute -left-24 -top-24 h-96 w-96 rounded-full opacity-30"
+          style={{ background: 'radial-gradient(circle, rgba(0,108,247,0.15) 0%, transparent 70%)' }}
+          aria-hidden
+        />
         <div className="container-xl relative max-w-3xl">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-300">Hire Us</p>
-          <h1 className="font-display text-display-xl text-white">
-            Pre-vetted engineers. Deployed in 5 days.
+          <span className="eyebrow mb-5">Careers</span>
+          <h1
+            className="mt-5 font-display font-extrabold text-slate-900"
+            style={{ fontSize: 'clamp(2.25rem, 5vw, 3.75rem)', lineHeight: 1.05, letterSpacing: '-0.03em' }}
+          >
+            Join a team that
+            <span
+              className="block"
+              style={{
+                backgroundImage: 'linear-gradient(135deg, #1d4ed8 0%, #006CF7 60%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              delivers ERP at scale.
+            </span>
           </h1>
-          <p className="mt-6 text-lg text-slate-400 leading-relaxed">
-            Extend your team with certified specialists across ERP, DevOps, custom development, and AI — on flexible monthly engagement models with zero recruitment overhead.
+          <p className="mt-6 text-lg leading-relaxed text-slate-500">
+            We are growing fast. With 18 years of Dynamics 365 delivery across India, the GCC, and now
+            Europe — Aplica is the right place for consultants who want meaningful work and real career growth.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Link
-              href="/contact#hire"
-              className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110"
-              style={{ background: 'linear-gradient(135deg, #6eaaff 0%, #006CF7 100%)', boxShadow: '0 4px 20px rgba(0,108,247,0.30)' }}
-            >
-              Tell us what you need
-              <ArrowRight size={14} />
-            </Link>
+            <a href="mailto:hr@aplicatech.com" className="btn-primary">
+              Apply Now
+              <ArrowRight size={14} aria-hidden />
+            </a>
+            <a href="#open-positions" className="btn-ghost">
+              View Open Positions
+              <ArrowRight size={14} aria-hidden />
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Role cards */}
-      <section className="section-padding bg-slate-900">
+      {/* Why join */}
+      <section className="section-padding bg-white">
         <div className="container-xl">
-          <h2 className="mb-10 font-display text-display-sm text-white">Choose your specialist</h2>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {roles.map((r) => (
-              <Link
-                key={r.slug}
-                href={`/hire/${r.slug}`}
-                className="group flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all hover:border-white/20 hover:bg-white/[0.06]"
+          <span className="eyebrow mb-4">Why Aplica</span>
+          <h2
+            className="mt-4 mb-10 font-display font-extrabold text-slate-900"
+            style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', lineHeight: 1.1, letterSpacing: '-0.025em' }}
+          >
+            More than a job.
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {perks.map((p) => (
+              <div
+                key={p}
+                className="flex items-start gap-3 rounded-2xl p-5"
+                style={{ background: '#f8faff', boxShadow: 'inset 0 0 0 1px rgba(0,108,247,0.10)' }}
               >
                 <div
-                  className="mb-4 h-1 w-10 rounded-full"
-                  style={{ backgroundColor: r.color }}
-                />
-                <h3 className="font-display text-lg font-semibold text-white">{r.title}</h3>
-                <p className="mb-3 text-sm text-slate-400">{r.subtitle}</p>
-                <p className="text-sm text-slate-400 leading-relaxed flex-1">{r.description}</p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {r.skills.map((s) => (
-                    <span key={s} className="rounded-md bg-white/5 px-2.5 py-1 text-xs text-slate-400">
-                      {s}
-                    </span>
-                  ))}
+                  className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
+                  style={{ background: '#eff6ff' }}
+                >
+                  <Check size={11} style={{ color: '#006CF7' }} aria-hidden />
                 </div>
-                <div className="mt-5 flex items-center gap-1 text-sm font-medium text-brand-400 group-hover:text-brand-300">
-                  View details <ArrowRight size={13} />
-                </div>
-              </Link>
+                <span className="text-sm font-medium text-slate-700">{p}</span>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Process */}
-      <section className="section-padding bg-slate-950">
+      {/* Open positions */}
+      <section id="open-positions" className="section-padding" style={{ background: '#f8faff' }}>
         <div className="container-xl">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand-300">How it works</p>
-          <h2 className="mb-12 font-display text-display-sm text-white">From brief to deployed — in under a week</h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {process.map((p) => (
-              <div key={p.step} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-                <p className="mb-3 text-3xl font-bold text-white/20">{p.step}</p>
-                <h3 className="mb-2 text-sm font-semibold text-white">{p.title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">{p.body}</p>
+          <span className="eyebrow mb-4">Open Positions</span>
+          <h2
+            className="mt-4 mb-14 font-display font-extrabold text-slate-900"
+            style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', lineHeight: 1.1, letterSpacing: '-0.025em' }}
+          >
+            Find your role.
+          </h2>
+
+          <div className="space-y-16">
+            {openPositions.map((group) => (
+              <div key={group.id} id={group.id}>
+                <div className="mb-6 flex items-center gap-3">
+                  <div className="h-1 w-8 rounded-full" style={{ backgroundColor: group.color }} />
+                  <h3 className="font-display text-lg font-bold text-slate-900">{group.category}</h3>
+                </div>
+                <div className="grid gap-4 md:grid-cols-2">
+                  {group.roles.map((role) => (
+                    <div
+                      key={role.title}
+                      className="rounded-2xl bg-white p-6"
+                      style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.07)' }}
+                    >
+                      <h4 className="font-display text-base font-bold text-slate-900">{role.title}</h4>
+                      <p className="mb-3 text-xs font-medium text-slate-500">{role.subtitle}</p>
+                      <div className="mb-4 flex flex-wrap gap-2">
+                        <span className="flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
+                          <MapPin size={10} aria-hidden />
+                          {role.location}
+                        </span>
+                        <span className="flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
+                          <Briefcase size={10} aria-hidden />
+                          {role.experience}
+                        </span>
+                      </div>
+                      <p className="text-sm leading-relaxed text-slate-500">{role.description}</p>
+                      <a
+                        href="mailto:hr@aplicatech.com"
+                        className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-blue-600 hover:underline"
+                      >
+                        Apply via email <ArrowRight size={12} aria-hidden />
+                      </a>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
@@ -143,20 +245,23 @@ export default function HirePage() {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-slate-900">
-        <div className="container-xl max-w-2xl text-center">
-          <h2 className="font-display text-display-md text-white">Ready to extend your team?</h2>
-          <p className="mt-4 text-slate-400">
-            Share a brief and we'll come back with a shortlist of matched engineers within 48 hours.
-          </p>
-          <Link
-            href="/contact#hire"
-            className="mt-8 inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold text-white transition-all hover:brightness-110"
-            style={{ background: 'linear-gradient(135deg, #6eaaff 0%, #006CF7 100%)', boxShadow: '0 4px 20px rgba(0,108,247,0.30)' }}
+      <section className="section-padding bg-white text-center">
+        <div className="container-xl max-w-2xl">
+          <span className="eyebrow mb-4">Get in Touch</span>
+          <h2
+            className="mt-4 font-display font-extrabold text-slate-900"
+            style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', lineHeight: 1.1, letterSpacing: '-0.025em' }}
           >
-            Start the conversation
-            <ArrowRight size={14} />
-          </Link>
+            Do not see the right role?
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-slate-500">
+            We are always looking for talented D365 professionals. Send your CV and we will keep
+            you in mind for future openings.
+          </p>
+          <a href="mailto:hr@aplicatech.com" className="btn-primary mt-8 inline-flex">
+            Send your CV
+            <ArrowRight size={14} aria-hidden />
+          </a>
         </div>
       </section>
     </>

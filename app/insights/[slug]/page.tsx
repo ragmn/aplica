@@ -94,7 +94,7 @@ export default async function InsightPage({ params }: PageProps) {
       </section>
 
       {/* Article body */}
-      <article className="section-padding bg-slate-950">
+      <article className="section-padding bg-white">
         <div className="container-xl grid gap-12 lg:grid-cols-3">
           {/* MDX content */}
           <div className="lg:col-span-2 prose-aplica">
@@ -105,11 +105,18 @@ export default async function InsightPage({ params }: PageProps) {
           <aside className="space-y-6">
             {/* Tags */}
             {meta.tags.length > 0 && (
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-                <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-400">Topics</p>
+              <div
+                className="rounded-2xl p-5"
+                style={{ background: '#f8faff', boxShadow: 'inset 0 0 0 1px rgba(0,108,247,0.10)' }}
+              >
+                <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-slate-400">Topics</p>
                 <div className="flex flex-wrap gap-2">
                   {meta.tags.map((tag) => (
-                    <span key={tag} className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">
+                    <span
+                      key={tag}
+                      className="rounded-full px-3 py-1 text-xs font-medium text-slate-600"
+                      style={{ background: '#eff6ff' }}
+                    >
                       {tag}
                     </span>
                   ))}
@@ -118,11 +125,14 @@ export default async function InsightPage({ params }: PageProps) {
             )}
 
             {/* Inline lead magnet */}
-            <div className="rounded-2xl border border-brand-500/30 bg-brand-500/5 p-6">
-              <p className="mb-2 text-sm font-semibold text-white">
-                Free: D365 Cost Guide (UK & Europe)
+            <div
+              className="rounded-2xl p-6"
+              style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)', boxShadow: 'inset 0 0 0 1px rgba(0,108,247,0.15)' }}
+            >
+              <p className="mb-2 text-sm font-bold text-slate-900">
+                Free: D365 Cost Guide (UK and Europe)
               </p>
-              <p className="mb-4 text-xs text-slate-400">
+              <p className="mb-4 text-xs text-slate-500">
                 Download pricing benchmarks and TCO analysis.
               </p>
               <LeadMagnetForm

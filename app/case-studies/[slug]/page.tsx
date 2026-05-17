@@ -78,33 +78,36 @@ export default async function CaseStudyPage({ params }: PageProps) {
       </section>
 
       {/* Content */}
-      <section className="section-padding bg-slate-950">
+      <section className="section-padding bg-white">
         <div className="container-xl">
           <div className="grid gap-12 lg:grid-cols-3">
             {/* Main */}
             <div className="lg:col-span-2 space-y-10">
               <div>
-                <h2 className="mb-4 text-lg font-semibold text-brand-400">The Challenge</h2>
-                <p className="text-slate-300 leading-relaxed">{cs.challenge}</p>
+                <h2 className="mb-4 text-lg font-bold text-slate-900">The Challenge</h2>
+                <p className="text-slate-600 leading-relaxed">{cs.challenge}</p>
               </div>
               <div>
-                <h2 className="mb-4 text-lg font-semibold text-brand-400">Our Solution</h2>
-                <p className="text-slate-300 leading-relaxed">{cs.solution}</p>
+                <h2 className="mb-4 text-lg font-bold text-slate-900">Our Solution</h2>
+                <p className="text-slate-600 leading-relaxed">{cs.solution}</p>
               </div>
               <div>
-                <h2 className="mb-4 text-lg font-semibold text-brand-400">The Results</h2>
-                <p className="text-slate-300 leading-relaxed">{cs.results}</p>
+                <h2 className="mb-4 text-lg font-bold text-slate-900">The Results</h2>
+                <p className="text-slate-600 leading-relaxed">{cs.results}</p>
               </div>
 
               {/* Testimonial */}
               {cs.testimonial && (
-                <figure className="glass-card p-8">
-                  <p className="text-xl italic text-slate-300 leading-relaxed">
+                <figure
+                  className="rounded-2xl p-8"
+                  style={{ background: '#f8faff', boxShadow: 'inset 0 0 0 1px rgba(0,108,247,0.10)' }}
+                >
+                  <p className="text-lg italic leading-relaxed text-slate-700">
                     &ldquo;{cs.testimonial.quote}&rdquo;
                   </p>
                   <figcaption className="mt-4">
-                    <p className="text-sm font-semibold text-white">{cs.testimonial.author}</p>
-                    <p className="text-xs text-slate-400">{cs.testimonial.role}</p>
+                    <p className="text-sm font-bold text-slate-900">{cs.testimonial.author}</p>
+                    <p className="text-xs text-slate-500">{cs.testimonial.role}</p>
                   </figcaption>
                 </figure>
               )}
@@ -113,30 +116,43 @@ export default async function CaseStudyPage({ params }: PageProps) {
             {/* Sidebar */}
             <aside className="space-y-6">
               {/* Metrics */}
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-                <h3 className="mb-5 text-sm font-semibold uppercase tracking-widest text-slate-400">
+              <div
+                className="rounded-2xl p-6"
+                style={{ background: '#f8faff', boxShadow: 'inset 0 0 0 1px rgba(0,108,247,0.10)' }}
+              >
+                <h3 className="mb-5 text-[10px] font-bold uppercase tracking-widest text-slate-400">
                   Key Metrics
                 </h3>
                 <div className="space-y-5">
                   {cs.metrics.map((m) => (
                     <div key={m.label}>
-                      <p className="text-3xl font-bold text-white">
+                      <p
+                        className="font-display font-extrabold text-slate-900"
+                        style={{ fontSize: '2rem', lineHeight: 1, letterSpacing: '-0.03em' }}
+                      >
                         {m.value}{m.suffix}
                       </p>
-                      <p className="mt-0.5 text-xs text-slate-400">{m.label}</p>
+                      <p className="mt-0.5 text-xs text-slate-500">{m.label}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Tags */}
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-                <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-slate-400">
-                  Technologies & Services
+              <div
+                className="rounded-2xl p-6"
+                style={{ background: '#f8faff', boxShadow: 'inset 0 0 0 1px rgba(0,108,247,0.10)' }}
+              >
+                <h3 className="mb-4 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                  Technologies and Services
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {cs.tags.map((tag) => (
-                    <span key={tag} className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">
+                    <span
+                      key={tag}
+                      className="rounded-full px-3 py-1 text-xs font-medium text-slate-600"
+                      style={{ background: '#eff6ff' }}
+                    >
                       {tag}
                     </span>
                   ))}
@@ -144,14 +160,14 @@ export default async function CaseStudyPage({ params }: PageProps) {
               </div>
 
               {/* CTA */}
-              <div className="rounded-2xl border border-brand-500/30 bg-brand-500/5 p-6">
-                <p className="mb-3 text-sm font-medium text-white">
+              <div
+                className="rounded-2xl p-6"
+                style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)', boxShadow: 'inset 0 0 0 1px rgba(0,108,247,0.15)' }}
+              >
+                <p className="mb-3 text-sm font-bold text-slate-900">
                   Want results like these?
                 </p>
-                <Link
-                  href="/contact"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white hover:bg-brand-500 transition-colors"
-                >
+                <Link href="/contact" className="btn-primary w-full justify-center text-sm">
                   Start a conversation
                 </Link>
               </div>

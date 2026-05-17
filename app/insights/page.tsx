@@ -7,16 +7,16 @@ import { JsonLd } from '@/components/common/JsonLd'
 import { breadcrumbSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
-  title: 'Insights — Microsoft Dynamics 365 Blog & Guides',
+  title: 'Insights — Microsoft Dynamics 365 Blog and Guides',
   description:
     'Expert articles, guides, and comparisons on Microsoft Dynamics 365 implementation, licensing, and ERP strategy for UK and European businesses.',
   alternates: { canonical: 'https://aplicatech.com/insights' },
 }
 
 const categoryColors: Record<string, string> = {
-  TOFU: 'text-sky-400 bg-sky-400/10',
-  MOFU: 'text-violet-400 bg-violet-400/10',
-  BOFU: 'text-emerald-400 bg-emerald-400/10',
+  TOFU: 'text-sky-600 bg-sky-50',
+  MOFU: 'text-violet-600 bg-violet-50',
+  BOFU: 'text-emerald-600 bg-emerald-50',
 }
 
 const categoryLabels: Record<string, string> = {
@@ -35,21 +35,31 @@ export default function InsightsPage() {
       <JsonLd data={breadcrumbSchema([{ name: 'Home', href: '/' }, { name: 'Insights', href: '/insights' }])} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-slate-950 pt-32 pb-20">
-        <div className="pointer-events-none absolute inset-0 bg-hero-glow opacity-30" />
+      <section
+        className="relative overflow-hidden pt-24 pb-20"
+        style={{ background: 'linear-gradient(145deg, #f0f7ff 0%, #fafcff 55%, #f5f0ff 100%)' }}
+      >
+        <div
+          className="pointer-events-none absolute -left-24 -top-24 h-96 w-96 rounded-full opacity-30"
+          style={{ background: 'radial-gradient(circle, rgba(0,108,247,0.15) 0%, transparent 70%)' }}
+          aria-hidden
+        />
         <div className="container-xl relative">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-brand-300">Insights</p>
-          <h1 className="font-display text-display-xl text-white max-w-2xl">
+          <span className="eyebrow mb-5">Insights</span>
+          <h1
+            className="mt-5 font-display font-extrabold text-slate-900 max-w-2xl"
+            style={{ fontSize: 'clamp(2.25rem, 5vw, 3.75rem)', lineHeight: 1.05, letterSpacing: '-0.03em' }}
+          >
             Expert thinking on Dynamics 365.
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-slate-400">
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-500">
             Guides, comparisons, and strategic advice from the team behind 200+ ERP implementations.
           </p>
         </div>
       </section>
 
       {/* Posts */}
-      <section className="section-padding bg-slate-950">
+      <section className="section-padding bg-white">
         <div className="container-xl">
           {posts.length === 0 ? (
             <div className="py-20 text-center">
@@ -61,32 +71,35 @@ export default function InsightsPage() {
                 <Link
                   key={post.slug}
                   href={`/insights/${post.slug}`}
-                  className="group flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all hover:border-brand-500/30 hover:bg-white/[0.06]"
+                  className="group flex flex-col rounded-2xl bg-white transition-all hover:-translate-y-0.5"
+                  style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.08)' }}
                 >
-                  {/* Category */}
-                  <span
-                    className={`mb-4 inline-flex w-fit items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${categoryColors[post.category] ?? ''}`}
-                  >
-                    <Tag size={10} />
-                    {categoryLabels[post.category] ?? post.category}
-                  </span>
-
-                  <h2 className="mb-3 text-lg font-semibold leading-snug text-white group-hover:text-brand-300 transition-colors">
-                    {post.title}
-                  </h2>
-                  <p className="flex-1 text-sm leading-relaxed text-slate-400">{post.excerpt}</p>
-
-                  {/* Meta */}
-                  <div className="mt-5 flex items-center justify-between text-xs text-slate-400">
-                    <span>{formatDate(post.publishedAt)}</span>
-                    <span className="flex items-center gap-1">
-                      <Clock size={10} />
-                      {post.readingTime} min
+                  <div className="p-6">
+                    {/* Category */}
+                    <span
+                      className={`mb-4 inline-flex w-fit items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${categoryColors[post.category] ?? 'text-slate-600 bg-slate-100'}`}
+                    >
+                      <Tag size={10} aria-hidden />
+                      {categoryLabels[post.category] ?? post.category}
                     </span>
-                  </div>
 
-                  <div className="mt-4 flex items-center gap-1 text-sm font-medium text-brand-400 transition-all group-hover:gap-2">
-                    Read article <ArrowRight size={13} />
+                    <h2 className="mb-3 text-lg font-bold leading-snug text-slate-900 group-hover:text-blue-600 transition-colors">
+                      {post.title}
+                    </h2>
+                    <p className="flex-1 text-sm leading-relaxed text-slate-500">{post.excerpt}</p>
+
+                    {/* Meta */}
+                    <div className="mt-5 flex items-center justify-between text-xs text-slate-400">
+                      <span>{formatDate(post.publishedAt)}</span>
+                      <span className="flex items-center gap-1">
+                        <Clock size={10} aria-hidden />
+                        {post.readingTime} min
+                      </span>
+                    </div>
+
+                    <div className="mt-4 flex items-center gap-1 text-sm font-bold text-blue-600 transition-all group-hover:gap-2">
+                      Read article <ArrowRight size={13} aria-hidden />
+                    </div>
                   </div>
                 </Link>
               ))}

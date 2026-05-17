@@ -97,10 +97,8 @@ export function MethodologyTimeline() {
 
         {/* Header */}
         <div className="mb-16 text-center">
-          <span className="mb-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-400">
-            <span className="inline-block h-px w-5 bg-blue-400" />
+          <span className="eyebrow mb-5">
             How We Work
-            <span className="inline-block h-px w-5 bg-blue-400" />
           </span>
           <h2
             id="methodology-heading"
