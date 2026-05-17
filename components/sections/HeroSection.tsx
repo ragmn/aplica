@@ -63,7 +63,7 @@ export function HeroSection() {
       />
 
       <div className="container-xl relative pt-10 pb-20 md:pt-12 md:pb-24 lg:pt-14 lg:pb-28">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-center gap-4 lg:grid-cols-[1fr_2fr]">
 
           {/* Left — content */}
           <div className="flex flex-col items-start">
@@ -158,13 +158,13 @@ export function HeroSection() {
           </div>
 
           {/* Right — illustration */}
-          <div ref={illustRef} className="relative hidden opacity-0 lg:flex lg:items-center lg:justify-center">
+          <div ref={illustRef} className="relative flex items-center justify-end opacity-0 lg:-mr-16 lg:-my-16">
             <Image
               src="/images/eco_system_trans.png"
               alt="Microsoft Power Apps"
-              width={800}
-              height={800}
-              className="w-full max-w-2xl"
+              width={1000}
+              height={1000}
+              className="w-full scale-110"
               priority
             />
           </div>

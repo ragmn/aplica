@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { ArrowRight, TrendingUp } from 'lucide-react'
 import { caseStudies } from '@/data/caseStudies'
@@ -13,13 +14,13 @@ export function CaseStudiesPreview() {
         {/* Section header */}
         <div className="mb-14 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
-            <span className="eyebrow mb-5">Client Impact</span>
+            <span className="eyebrow mb-5">Proven Delivery</span>
             <h2
               id="case-studies-heading"
               className="mt-5 font-display font-extrabold text-slate-900"
               style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1, letterSpacing: '-0.025em' }}
             >
-              Transformation stories,
+              Real implementations.
               <span
                 className="block"
                 style={{
@@ -29,12 +30,12 @@ export function CaseStudiesPreview() {
                   backgroundClip: 'text',
                 }}
               >
-                not feature lists.
+                Measurable outcomes.
               </span>
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-slate-500">
-              Real projects. Quantified outcomes. Every engagement is built on a fixed scope
-              and a commitment to measurable results.
+              18 years of D365 delivery across manufacturing, food and beverage, energy, and services.
+              Every project below is a live reference you can speak to.
             </p>
           </div>
 
@@ -59,6 +60,21 @@ export function CaseStudiesPreview() {
               className="group flex flex-col overflow-hidden rounded-3xl bg-white"
               style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.05), 0 8px 32px rgba(0,0,0,0.08)' }}
             >
+              {/* Cover image */}
+              <div className="relative h-48 w-full overflow-hidden">
+                <Image
+                  src={cs.image}
+                  alt={cs.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{ background: 'linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.35) 100%)' }}
+                />
+              </div>
+
               {/* Top: sector + challenge */}
               <div className="p-8 pb-0">
                 <div className="mb-5 flex items-center gap-3">
@@ -144,9 +160,9 @@ export function CaseStudiesPreview() {
           style={{ background: 'linear-gradient(135deg, #f0f7ff 0%, #f8faff 100%)', border: '1px solid #bfdbfe' }}
         >
           <p className="font-display text-lg font-bold text-slate-900">
-            200+ successful implementations across 15+ countries.{' '}
+            200+ D365 go-lives across India, GCC, and Europe. Every client is a reference.{' '}
             <Link href="/case-studies" className="text-blue-600 underline underline-offset-2">
-              See all case studies →
+              See all case studies
             </Link>
           </p>
         </div>

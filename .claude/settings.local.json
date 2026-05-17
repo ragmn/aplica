@@ -2,7 +2,14 @@
   "permissions": {
     "allow": [
       "Bash(npx tsc *)",
-      "Bash(npx next *)"
+      "Bash(npx next *)",
+      "Bash(python3 -c \"import docx; doc=docx.Document\\('/Users/a1201/ragmn-workspace/aplica/docs/Aplica_Technologies_Case_Study.docx'\\); print\\('\\\\n'.join\\([p.text for p in doc.paragraphs]\\)\\)\")",
+      "Bash(pandoc --version)",
+      "Bash(pip3 install *)",
+      "Bash(python3 -c \"import docx; print\\('ok'\\)\")",
+      "Bash(python3 -c \"import docx; doc=docx.Document\\('/Users/a1201/ragmn-workspace/aplica/docs/Bank Integration..docx'\\); print\\('\\\\n'.join\\([p.text for p in doc.paragraphs]\\)\\)\")",
+      "Bash(python3 -c \"import docx; doc=docx.Document\\('/Users/a1201/ragmn-workspace/aplica/docs/Case Study on Service Module for GNE.docx'\\); print\\('\\\\n'.join\\([p.text for p in doc.paragraphs]\\)\\)\")",
+      "Bash(python3 -c \"import docx; doc=docx.Document\\('/Users/a1201/ragmn-workspace/aplica/docs/Case Study_BankIntegration_Bhadrajeet.docx'\\); print\\('\\\\n'.join\\([p.text for p in doc.paragraphs]\\)\\)\")"
     ]
   }
 }
