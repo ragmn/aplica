@@ -2,15 +2,6 @@ import { NavItem } from '@/types'
 
 export const navigation: NavItem[] = [
   {
-    label: 'About',
-    href: '/about',
-    children: [
-      { label: 'Who We Are', href: '/about' },
-      { label: 'Our Offices', href: '/about#offices' },
-      { label: 'Careers and Open Roles', href: '/hire' },
-    ],
-  },
-  {
     label: 'Services',
     href: '/solutions',
     children: [
@@ -55,6 +46,15 @@ export const navigation: NavItem[] = [
       { label: 'Webinars & Events', href: '/insights#webinars' },
       { label: 'Microsoft Licensing Guide', href: '/insights#licensing' },
       { label: 'FAQ', href: '/about#faq' },
+    ],
+  },
+  {
+    label: 'About',
+    href: '/about',
+    children: [
+      { label: 'Who We Are', href: '/about' },
+      { label: 'Our Offices', href: '/about#offices' },
+      { label: 'Careers and Open Roles', href: '/hire' },
     ],
   },
 ]
