@@ -77,7 +77,7 @@ export function HeroSection() {
                 letterSpacing: '-0.03em',
               }}
             >
-              18 Years of ERP Excellence.
+             Your Microsoft Dynamics partner.
               <br />
               <span
                 style={{
@@ -87,7 +87,7 @@ export function HeroSection() {
                   backgroundClip: 'text',
                 }}
               >
-                Now Serving Europe.
+                Anywhere you work.
               </span>
             </h1>
 
@@ -96,9 +96,7 @@ export function HeroSection() {
               ref={subRef}
               className="mt-6 max-w-lg text-lg leading-relaxed text-slate-600 opacity-0"
             >
-              Aplica brings battle-tested Microsoft Dynamics 365 expertise, built across 200+
-              implementations in India and the GCC, to businesses across the UK and Europe.
-              Enterprise-grade ERP delivery, without the enterprise-sized price tag.
+              We've delivered Microsoft Dynamics 365 across 200+ projects in some of the world's most demanding markets. That experience now works for your business.
             </p>
 
             {/* CTAs */}
