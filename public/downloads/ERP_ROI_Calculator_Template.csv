@@ -1,0 +1,17 @@
+Category,Metric / Business Impact Area,Current System / Legacy Costs (Annual GBP),Projected Costs with D365 ERP & Power BI (Annual GBP),Projected Annual Savings / Benefits (GBP),Calculation Formulation & Industry Benchmarks
+Licensing & Infrastructure,Legacy ERP & CRM Software Maintenance Fees,25000,0,25000,Eliminate old local license maintenance costs
+Licensing & Infrastructure,Local Server Infrastructure & Hosting Costs,18000,0,18000,"Eliminate onsite server hardware, energy, and localized hosting"
+Licensing & Infrastructure,D365 Cloud Licensing (Estimate),0,32000,-32000,Business Central / Finance & Operations monthly users subscription
+Finance & Administration,Manual Payment & Bank Reconciliation Effort (Hours),14000,4200,9800,API/SFTP automated bank integrations cut hours by 70%
+Finance & Administration,Group Consolidations & Multi-Entity Reporting,12000,2400,9600,Real-time automated inter-company accounts and unified reporting
+Operations & Inventory,Inventory Carrying Costs & Excess Stock,85000,59500,25500,AI-driven demand forecasting and Master Planning (MRP) cuts carrying costs by 20-30%
+Operations & Inventory,Production Disruption & Stockout Inefficiencies,40000,8000,32000,Daily MRP runs reduce parts stockouts and machine downtime by 80%
+Operations & Inventory,Manual Subcontractor / Outsourcing Allocations,8000,2400,5600,Nightly automated conversions of delayed production to subcontracting purchase orders
+Sales & Service,Order Billing Discrepancies & Dispute Handling,15000,3000,12000,Standard automated invoices and e-invoicing integrations drop disputes by 80%
+Sales & Service,After-Sales Repair Cycles & Warranty Tracking,11000,4400,6600,"Direct digitisation of service orders, engineer tasks, and parts COGS inside ERP"
+TOTALS,Unified Financial Summary,224000,113500,110500,Annual ongoing cash-flow operational savings
+ROI METRICS,Key Investment Performance Metrics,,,,
+ROI METRICS,Implementation Investment (Consulting & Migration Services),85000,,,One-time cost (blended onsite/offshore implementation hybrid model)
+ROI METRICS,Year 1 Net Savings (Savings - Implementation),25500,,,Ongoing ROI will scale rapidly once systems are fully adopted
+ROI METRICS,Year 2 Net Savings (Ongoing Savings),110500,,,Assumes fully stabilized operation and zero additional configuration costs
+ROI METRICS,Payback Period (Months),9.2,,,Formulation: (Implementation Cost / Ongoing Annual Savings) * 12

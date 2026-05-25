@@ -47,7 +47,7 @@ export const leadMagnets: LeadMagnet[] = [
     title: 'Dynamics 365 Cost Guide (UK & Europe)',
     description:
       'Pricing benchmarks, licensing options, and total cost of ownership for SMBs through to enterprise.',
-    fileName: 'D365_SCM_Licensing_Guide.pdf',
+    fileName: 'D365_Cost_Guide_UK_Europe.pdf',
     category: 'guide',
   },
   {
@@ -56,7 +56,7 @@ export const leadMagnets: LeadMagnet[] = [
     title: 'ERP ROI Calculation Template',
     description:
       'A structured Excel template to build your internal business case — with pre-populated industry benchmarks.',
-    fileName: 'D365_SCM_Licensing_Guide.pdf',
+    fileName: 'ERP_ROI_Calculator_Template.csv',
     category: 'calculator',
   },
   {
@@ -65,7 +65,7 @@ export const leadMagnets: LeadMagnet[] = [
     title: 'D365 Migration Readiness Checklist',
     description:
       '47-point checklist covering data readiness, team skills, integration requirements, and go-live criteria.',
-    fileName: 'D365_SCM_Licensing_Guide.pdf',
+    fileName: 'D365_Migration_Readiness_Checklist.pdf',
     category: 'checklist',
   },
 ]

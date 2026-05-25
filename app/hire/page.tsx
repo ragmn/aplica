@@ -5,7 +5,7 @@ import { ArrowRight, MapPin, Briefcase, Check } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Careers at Aplica — Open Positions | D365 Consultants, Technical Roles and Sales',
   description:
-    'Join Aplica Technology. Open positions for Microsoft Dynamics 365 F&O functional and technical consultants, Business Central specialists, CRM consultants, and sales roles across Bangalore and Dubai.',
+    'Join Aplica Technology. Open positions for Microsoft Dynamics 365 F&O functional and technical consultants, Business Central specialists, CRM consultants, and sales roles across Bengaluru and Dubai.',
   alternates: { canonical: 'https://aplicatech.com/hire' },
 }
 
@@ -18,35 +18,35 @@ const openPositions = [
       {
         title: 'F&O SCM Functional Consultant',
         subtitle: 'SCM, Manufacturing, MRP, Landed Cost, ADWMS',
-        location: 'Bangalore (Hybrid)',
+        location: 'Bengaluru (Hybrid)',
         experience: '4 to 6 years',
         description: 'Core SCM modules with deep knowledge in Manufacturing, MRP, Landed Cost, and Advanced Warehouse Management. Strong functional consulting skills including requirement gathering, UAT support, and client-facing delivery.',
       },
       {
         title: 'F&O Functional Lead',
         subtitle: 'Finance and SCM/PMA',
-        location: 'Bangalore (Hybrid)',
+        location: 'Bengaluru (Hybrid)',
         experience: '5 to 8 years',
         description: 'End-to-end implementation leadership across Finance and SCM/PMA modules. Responsible for solution design, gap-fit analysis, team coordination, stakeholder management, and leading workshops independently.',
       },
       {
         title: 'F&O Finance Functional Consultant',
         subtitle: 'GL, AR, AP, Fixed Assets, Budgeting',
-        location: 'Bangalore (Hybrid)',
+        location: 'Bengaluru (Hybrid)',
         experience: '4 to 6 years',
         description: 'Strong knowledge of Finance modules including GL, AR, AP, Bank, Fixed Assets, Budgeting, Financial Reporting and Taxation. Experience in requirement gathering, UAT, and client-facing engagements.',
       },
       {
         title: 'F&O Technical Consultant',
         subtitle: 'X++, SQL, Integrations, Customisations',
-        location: 'Bangalore (Hybrid)',
+        location: 'Bengaluru (Hybrid)',
         experience: '4 to 8 years',
         description: 'Strong technical expertise in D365 F&O development including X++, SQL, integrations, extensions, data migration, LCS, and Azure DevOps. Ability to work independently with good client-handling skills.',
       },
       {
         title: 'Pre-Sales Consultant / Lead',
         subtitle: 'F&O, Client Presentations',
-        location: 'Bangalore (Hybrid)',
+        location: 'Bengaluru (Hybrid)',
         experience: '5+ years',
         description: 'Work closely with sales teams to understand client requirements and present tailored D365 F&O solutions. Strong background in Finance and Operations required with excellent communication and presentation skills.',
       },
@@ -60,14 +60,14 @@ const openPositions = [
       {
         title: 'NAV / BC Functional Consultant',
         subtitle: 'Finance modules, Client Facing',
-        location: 'Bangalore (Hybrid)',
+        location: 'Bengaluru (Hybrid)',
         experience: '4 to 7 years',
         description: 'Core Finance and other BC modules. Strong client-facing skills with ability to handle client engagements independently. Good communication skills required.',
       },
       {
         title: 'NAV / BC Technical Consultant',
         subtitle: 'CAL / AL Coding, Integrations',
-        location: 'Bangalore (Hybrid)',
+        location: 'Bengaluru (Hybrid)',
         experience: '4 to 7 years',
         description: 'CAL and AL coding expertise with integration skills and solid NAV/BC development experience. Ability to build and maintain custom extensions and third-party integrations.',
       },

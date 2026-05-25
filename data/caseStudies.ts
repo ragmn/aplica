@@ -151,4 +151,30 @@ export const caseStudies: CaseStudy[] = [
     ],
     tags: ['Construction', 'D365 SCM', 'UK'],
   },
+  {
+    slug: 'bank-integration-d365-bc',
+    title: 'Automated API Bank Integration Eliminates 70% of Manual Reconciliation Effort',
+    client: 'Leading Multinational Services Company',
+    country: 'India',
+    industry: 'Financial Services',
+    image: '/images/case-studies/seven-tides.jpg',
+    challenge:
+      'The client was manually processing high-volume bank transactions, including vendor payment uploads and bank statement reconciliation. This led to operational bottlenecks, payment delays, critical manual errors, and a complete lack of real-time visibility into bank balances and transaction statuses across multiple accounts.',
+    solution:
+      'We designed and deployed an end-to-end automated bank integration using secure API-based communication and SFTP folders between Dynamics 365 Business Central and leading corporate banks (HDFC and ICICI). The solution automates the generation and transmission of secure payment files from payment journals, automates inbound MT940 bank statement imports, and executes automated multi-factor reconciliation with custom exception handling and audit logging.',
+    results:
+      'Manual effort in processing vendor payments and monthly reconciliation dropped by 70%. Data accuracy reached near 100% with the elimination of duplicate postings. Transaction cycles were reduced to real-time, giving treasury immediate visibility into consolidated cash flows and strengthening internal controls.',
+    metrics: [
+      { label: 'Manual Reconciliation', value: '70', suffix: '% eliminated' },
+      { label: 'Transaction Postings', value: '100', suffix: '% validated' },
+      { label: 'Reconciliation Speed', value: 'Daily', suffix: ' automated' },
+    ],
+    testimonial: {
+      quote:
+        'Aplica developed a secure custom bank integration that completely transformed our treasury operations. Reconciling high-volume vendor payments used to take days of manual checking; now it runs automatically daily inside Business Central with high precision.',
+      author: 'Bhadrajeet Sen',
+      role: 'Finance & Accounts Manager',
+    },
+    tags: ['D365 Business Central', 'Bank Integration', 'APIs', 'Finance', 'India'],
+  },
 ]

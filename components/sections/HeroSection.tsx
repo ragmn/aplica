@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { gsap } from 'gsap'
 import { ArrowRight, CheckCircle, Phone } from 'lucide-react'
+import { EcosystemGraphic } from './EcosystemGraphic'
 
 const trustBadges = [
   'Microsoft Solutions Partner',
@@ -156,15 +157,8 @@ export function HeroSection() {
           </div>
 
           {/* Right — illustration */}
-          <div ref={illustRef} className="relative flex items-center justify-end opacity-0 lg:-mr-16 lg:-my-16">
-            <Image
-              src="/images/eco_system_trans.png"
-              alt="Microsoft Power Apps"
-              width={1000}
-              height={1000}
-              className="w-full scale-110"
-              priority
-            />
+          <div ref={illustRef} className="relative hidden lg:flex items-center justify-center opacity-0 lg:-mr-16 lg:-my-16">
+            <EcosystemGraphic />
           </div>
         </div>
 

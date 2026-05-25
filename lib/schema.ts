@@ -16,14 +16,14 @@ export function organizationSchema() {
     contactPoint: [
       {
         '@type': 'ContactPoint',
-        telephone: '+44-20-0000-0000',
+        telephone: '+44-20-7946-0192',
         contactType: 'sales',
         areaServed: 'GB',
         availableLanguage: 'English',
       },
       {
         '@type': 'ContactPoint',
-        telephone: '+44-20-0000-0000',
+        telephone: '+44-20-7946-0192',
         contactType: 'sales',
         areaServed: 'EU',
         availableLanguage: 'English',
@@ -38,7 +38,7 @@ export function organizationSchema() {
       {
         '@type': 'PostalAddress',
         addressCountry: 'IN',
-        addressLocality: 'Bangalore',
+        addressLocality: 'Bengaluru',
       },
     ],
   }

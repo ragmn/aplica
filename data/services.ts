@@ -64,7 +64,7 @@ export const services: ServiceItem[] = [
       'Reduce inventory costs, improve demand forecasting accuracy, and gain real-time supplier visibility with Dynamics 365 Supply Chain Management.',
     benefits: [
       'Demand forecasting with AI-powered planning',
-      'Vendor management and PO automation',
+      'Smart Outsourcing & master capacity planning (MRP)',
       'Warehouse management and mobile scanning',
       'EDI and 3PL integrations',
     ],
@@ -81,7 +81,7 @@ export const services: ServiceItem[] = [
       'Our integration architects build robust, documented connections between D365 and your ERP, e-commerce, payroll, and BI platforms — with zero data loss migration paths.',
     benefits: [
       'Legacy AX, NAV, GP, and Salesforce migrations',
-      'Power Automate and Azure Logic Apps connectors',
+      'API & SFTP Bank Integrations (HDFC, ICICI, MT940 statement automation)',
       'Clean data migration with validation gates',
       'Post-migration hypercare support',
     ],

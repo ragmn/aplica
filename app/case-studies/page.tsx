@@ -9,7 +9,7 @@ import { breadcrumbSchema } from '@/lib/schema'
 export const metadata: Metadata = {
   title: 'Case Studies — Dynamics 365 Implementation Results',
   description:
-    'Real-world Microsoft Dynamics 365 implementations delivered by Aplica across manufacturing, food and beverage, renewable energy, real estate, hospitality, and construction. India, GCC and UK clients.',
+    'Real-world Microsoft Dynamics 365 implementations delivered by Aplica across manufacturing, food and beverage, renewable energy, real estate, hospitality, construction, and financial services. India, GCC and UK clients.',
   alternates: { canonical: 'https://aplicatech.com/case-studies' },
 }
 

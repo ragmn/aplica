@@ -7,7 +7,7 @@ import { breadcrumbSchema } from '@/lib/schema'
 export const metadata: Metadata = {
   title: 'About Aplica — Microsoft Dynamics 365 Partner | India, UAE and Europe',
   description:
-    'Aplica Technology is a premier Microsoft Cloud Solutions Provider and Dynamics 365 partner serving EMEA and India. 18 years of ERP expertise, 200+ implementations, offices in Dubai and Bangalore.',
+    'Aplica Technology is a premier Microsoft Cloud Solutions Provider and Dynamics 365 partner serving EMEA and India. 18 years of ERP expertise, 200+ implementations, offices in London, Dubai, and Bengaluru.',
   alternates: { canonical: 'https://aplicatech.com/about' },
 }
 
@@ -17,7 +17,7 @@ const milestones = [
   { year: '2015', event: 'Achieved Microsoft Gold Partner status' },
   { year: '2018', event: 'Launched E-Property 365 and E-Construct 365 proprietary modules' },
   { year: '2020', event: 'Designated Microsoft Cloud Solutions Provider (CSP)' },
-  { year: '2022', event: 'Expanded delivery team in Bangalore to 100+ certified resources' },
+  { year: '2022', event: 'Expanded delivery team in Bengaluru HQ to 100+ certified resources' },
   { year: '2023', event: 'Designated Microsoft AI Cloud Partner' },
   { year: '2024', event: 'Reached 200+ global implementations across 15+ countries' },
   { year: '2025', event: 'Expanding European presence across UK, Germany, Netherlands and France' },
@@ -32,15 +32,15 @@ const values = [
 
 const offices = [
   {
-    region: 'India',
+    region: 'India HQ',
     company: 'APLICA Technologies (India) Private Limited',
-    address: '9th Avenue, No. 14, 3rd Cross, NS Iyengar Street, Seshadripuram, Bangalore 560 020',
+    address: '9th Avenue, No. 14, 3rd Cross, NS Iyengar Street, Seshadripuram, Bengaluru 560 020',
     phone: '+91 80 23361469',
     email: 'sales@aplicatech.com',
     flag: '🇮🇳',
   },
   {
-    region: 'Middle East',
+    region: 'Middle East (GCC)',
     company: 'APLICA Technologies Co LLC',
     address: 'R 308 Building, Office No. 401, Next to UBL Bank, Bank Street, Dubai, UAE',
     phone: '+971 55 7932435',
@@ -48,10 +48,10 @@ const offices = [
     flag: '🇦🇪',
   },
   {
-    region: 'United Kingdom',
+    region: 'United Kingdom & Europe',
     company: 'Aplica Technology Ltd',
-    address: 'United Kingdom',
-    phone: '+44 20 0000 0000',
+    address: '85 Great Portland Street, London, W1W 7LT',
+    phone: '+44 20 7946 0192',
     email: 'uk@aplicatech.com',
     flag: '🇬🇧',
   }
@@ -150,6 +150,9 @@ export default function AboutPage() {
                 'Microsoft AI Cloud Partner',
                 'ISO 27001 aligned delivery',
                 '100+ certified architects and consultants',
+                'UK MTD & EU VAT regulatory compliance expertise',
+                'India GST & e-Invoicing integration experts',
+                'GCC Payroll & localization frameworks',
               ].map((c) => (
                 <div key={c} className="flex items-center gap-3">
                   <div

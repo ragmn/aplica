@@ -5,23 +5,19 @@ export const navigation: NavItem[] = [
     label: 'Services',
     href: '/solutions',
     children: [
-      // Strategy & Assessment
-      { label: 'Discovery Workshop', href: '/solutions#discovery' },
-      { label: 'M365 Readiness Assessment', href: '/solutions#readiness' },
-      // Deployment & Migration
-      { label: 'M365 Deployment & Migration', href: '/solutions#deployment' },
-      { label: 'SharePoint & Teams Configuration', href: '/solutions#sharepoint-teams' },
-      // Automation & Integration
-      { label: 'Power Platform (Apps / Automate / BI)', href: '/solutions#power-platform' },
-      { label: 'Azure Infrastructure & Cloud', href: '/solutions#azure-devops' },
-      // AI
-      { label: 'Microsoft Copilot Adoption', href: '/solutions#copilot-d365' },
-      { label: 'AI Consulting & Strategy', href: '/solutions#ai-consulting' },
-      // Support
-      { label: 'Managed Support & Training', href: '/solutions#support' },
-      { label: 'D365 Implementation (ERP/CRM)', href: '/solutions#implementation' },
+      // Dynamics 365 ERP & CRM
+      { label: 'D365 Implementation', href: '/solutions#implementation' },
       { label: 'Finance & Operations', href: '/solutions#finance-operations' },
       { label: 'Supply Chain Management', href: '/solutions#supply-chain' },
+      { label: 'CRM Automation', href: '/solutions#crm-automation' },
+      // Power Platform & Power BI
+      { label: 'Microsoft Power BI', href: '/solutions#power-bi' },
+      { label: 'Power Apps & Portals', href: '/solutions#power-apps' },
+      { label: 'Data & Analytics Strategy', href: '/solutions#analytics' },
+      // Cloud & Custom Integrations
+      { label: 'Integration & Migration', href: '/solutions#integration-migration' },
+      { label: 'Custom Web & Mobile Dev', href: '/solutions#web-development' },
+      { label: 'Managed Support', href: '/solutions#support' },
     ],
   },
   {
@@ -61,22 +57,22 @@ export const navigation: NavItem[] = [
 
 export const footerLinks = {
   services: [
-    { label: 'M365 Deployment & Migration', href: '/solutions#deployment' },
-    { label: 'SharePoint & Teams', href: '/solutions#sharepoint-teams' },
-    { label: 'Power Platform', href: '/solutions#power-platform' },
-    { label: 'Microsoft Copilot', href: '/solutions#copilot-d365' },
-    { label: 'Azure & Cloud Strategy', href: '/solutions#azure-devops' },
-    { label: 'D365 ERP / CRM', href: '/solutions#implementation' },
+    { label: 'D365 ERP Implementation', href: '/solutions#implementation' },
+    { label: 'Finance & Operations', href: '/solutions#finance-operations' },
+    { label: 'Supply Chain Management', href: '/solutions#supply-chain' },
+    { label: 'CRM Automation', href: '/solutions#crm-automation' },
+    { label: 'Microsoft Power BI', href: '/solutions#power-bi' },
+    { label: 'Integration & Migration', href: '/solutions#integration-migration' },
     { label: 'Managed Support', href: '/solutions#support' },
   ],
   solutions: [
-    { label: 'Empower Your Workforce', href: '/solutions#workforce' },
-    { label: 'Automate Processes', href: '/solutions#automation' },
-    { label: 'Secure Your Data', href: '/solutions#security' },
-    { label: 'Migrate to the Cloud', href: '/solutions#cloud-migration' },
-    { label: 'Adopt AI & Copilot', href: '/solutions#ai-copilot' },
-    { label: 'Professional Services', href: '/industries#professional-services' },
-    { label: 'Financial Services', href: '/industries#financial-services' },
+    { label: 'Manufacturing & SCM', href: '/industries#construction' },
+    { label: 'Food & Beverage', href: '/case-studies/food-manufacturer-d365-bc-traceability' },
+    { label: 'Real Estate & Property', href: '/case-studies/seven-tides-property-uae' },
+    { label: 'Hospitality & Leisure', href: '/case-studies/awj-holding-digital-transformation' },
+    { label: 'Renewable Energy Systems', href: '/case-studies/gne-after-sales-service-d365-bc' },
+    { label: 'Automotive & Decoplast', href: '/case-studies/sdpl-manufacturing-mrp-d365' },
+    { label: 'API Bank Integrations', href: '/case-studies/bank-integration-d365-bc' },
   ],
   company: [
     { label: 'About Us', href: '/about' },
